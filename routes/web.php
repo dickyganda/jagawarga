@@ -18,3 +18,11 @@ Route::get('/', function () {
 });
 
 Route::get('dashboard', 'JagawargaController@index');
+
+Route::get('datawarga', 'DatawargaController@datawarga');
+
+Route::get('infopenyakit', 'InfopenyakitController@infopenyakit');
+
+Route::get('infobantuan', 'InfobantuanController@infobantuan');
+
+Route::get('keluhan', 'KeluhanController@keluhan');

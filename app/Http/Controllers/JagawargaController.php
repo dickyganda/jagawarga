@@ -10,10 +10,10 @@ class JagawargaController extends Controller
     //
     function Index(){ 
 
-        $data = Warga::select('*')->where('lokasi', '=', 'waruwetan')
-        ->get();
-        // dd($data);
+        // $data = Warga::select('*')->where('lokasi', '=', 'waruwetan')
+        // ->get();
+        // // dd($data);
 
-        return view('dashboard', compact('data'));
+        return view('dashboard');
     }
 }
