@@ -26,3 +26,5 @@ Route::get('infopenyakit', 'InfopenyakitController@infopenyakit');
 Route::get('infobantuan', 'InfobantuanController@infobantuan');
 
 Route::get('keluhan', 'KeluhanController@keluhan');
+
+Route::get('anyar', 'AnyarController@anyar');
