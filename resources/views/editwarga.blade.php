@@ -406,41 +406,31 @@
 
           <div class="section-body">
             {{-- awal view --}}
-            <a href="/tambahwarga"> + Tambah Data Baru</a>
-	
-	<br/>
-	<br/>
 
-	<table border="1">
-		<tr>
-			<th>NIK</th>
-			<th>No. KK</th>
-			<th>Nama</th>
-      <th>TTL</th>
-      <th>JK</th>
-      <th>Lokasi</th>
-      <th>Riwayat</th>
-      <th>Waktu Karantina</th>
-			<th>Opsi</th>
-		</tr>
-		@foreach($datawarga as $warga)
-		<tr>
-			<td>{{ $warga->nik }}</td>
-			<td>{{ $warga->no_kk }}</td>
-			<td>{{ $warga->nama }}</td>
-      <td>{{ $warga->ttl }}</td>
-      <td>{{ $warga->jk }}</td>
-      <td>{{ $warga->lokasi }}</td>
-      <td>{{ $warga->riwayat }}</td>
-      <td>{{ $warga->waktu_karantina }}</td>
-			<td>
-				<a href="/editwarga/{{ $warga->nik }}">Edit</a>
-				|
-				<a href="/hapuswarga/{{ $warga->nik }}">Hapus</a>
-			</td>
-		</tr>
-		@endforeach
-	</table>
+            <h3>Edit Pegawai</h3>
+ 
+            <a href="/pegawai"> Kembali</a>
+            
+            <br/>
+            <br/>
+         
+            @foreach($datawarga as $warga)
+            <form action="/update" method="post">
+                {{ csrf_field() }}
+                NIK <input type="text" name="nik" value="{{ $warga->nik }}"> <br/>
+                No. KK <input type="text" required="required" name="no_kk" value="{{ $warga->no_kk }}"> <br/>
+                Nama <input type="text" required="required" name="nama" value="{{ $warga->nama }}"> <br/>
+                Tanggal Lahir <input type="date" required="required" name="ttl" value="{{ $warga->ttl }}"> <br/>
+                Jenis Kelamin<input type="radio" name="jk" value="{{ $warga->jk }}">
+                <label for="male">Laki-Laki</label>
+                <input type="radio" name="jk" value="{{ $warga->jk }}">
+                <label for="female">Perempuan</label> <br/>
+                Lokasi <input type="text" required="required" name="lokasi" value="{{ $warga->lokasi }}"> <br/>
+                Riwayat <input type="text" required="required" name="riwayat" value="{{ $warga->riwayat }}"> <br/>
+                Waktu Karantina <input type="text" required="required" name="waktu_karantina" value="{{ $warga->waktu_karantina }}"> <br/>
+                <input type="submit" value="Simpan">
+            </form>
+            @endforeach
             {{-- akhir view --}}
           </div>
         </section>

@@ -14,12 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if (Auth::check()){
+        return redirect('/dashboard');
+    }
+    else{
+    return redirect('/login');
+    }
 });
 
 Route::get('dashboard', 'JagawargaController@index');
 
 Route::get('datawarga', 'DatawargaController@datawarga');
+Route::get('tambahwarga','DatawargaController@tambahwarga');
+Route::get('editwarga/{nik}','DatawargaController@editwarga');
+Route::post('updatewarga','DatawargaController@updatewarga');
 
 Route::get('infopenyakit', 'InfopenyakitController@infopenyakit');
 
@@ -28,3 +36,7 @@ Route::get('infobantuan', 'InfobantuanController@infobantuan');
 Route::get('keluhan', 'KeluhanController@keluhan');
 
 Route::get('anyar', 'AnyarController@anyar');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

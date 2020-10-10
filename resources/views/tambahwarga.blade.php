@@ -406,41 +406,27 @@
 
           <div class="section-body">
             {{-- awal view --}}
-            <a href="/tambahwarga"> + Tambah Data Baru</a>
+
+	<a href="/datawarga"> Kembali</a>
 	
 	<br/>
 	<br/>
 
-	<table border="1">
-		<tr>
-			<th>NIK</th>
-			<th>No. KK</th>
-			<th>Nama</th>
-      <th>TTL</th>
-      <th>JK</th>
-      <th>Lokasi</th>
-      <th>Riwayat</th>
-      <th>Waktu Karantina</th>
-			<th>Opsi</th>
-		</tr>
-		@foreach($datawarga as $warga)
-		<tr>
-			<td>{{ $warga->nik }}</td>
-			<td>{{ $warga->no_kk }}</td>
-			<td>{{ $warga->nama }}</td>
-      <td>{{ $warga->ttl }}</td>
-      <td>{{ $warga->jk }}</td>
-      <td>{{ $warga->lokasi }}</td>
-      <td>{{ $warga->riwayat }}</td>
-      <td>{{ $warga->waktu_karantina }}</td>
-			<td>
-				<a href="/editwarga/{{ $warga->nik }}">Edit</a>
-				|
-				<a href="/hapuswarga/{{ $warga->nik }}">Hapus</a>
-			</td>
-		</tr>
-		@endforeach
-	</table>
+	<form action="/pegawai/store" method="post">
+		{{ csrf_field() }}
+		NIK <input type="text" name="nik" required="required"> <br/>
+		No. KK <input type="text" name="no_kk" required="required"> <br/>
+		Nama <input type="text" name="nama" required="required"> <br/>
+        TTL <input type="date" name="ttl" required="required"> <br/>
+        Jenis Kelamin <input type="radio" name="jk" value="lakilaki">
+        <label for="male">Laki-Laki</label>
+        <input type="radio" name="jk" value="perempuan">
+        <label for="female">Perempuan</label> <br/>
+        Lokasi <input type="text" name="lokasi" required="required"> <br/>
+        Riwayat <input type="text" name="riwayat" required="required"> <br/>
+        Waktu Karantina <input type="number" name="waktu_karantina" required="required"> <br/>
+		<input type="submit" value="Tambah">
+	</form>
             {{-- akhir view --}}
           </div>
         </section>
