@@ -25,11 +25,18 @@ Route::get('/', function () {
 Route::get('dashboard', 'JagawargaController@index');
 
 Route::get('datawarga', 'DatawargaController@datawarga');
-Route::get('tambahwarga','DatawargaController@tambahwarga');
+Route::get('tambahwarga','DatawargaController@viewtambahwarga');
+Route::post('tambahwarga','DatawargaController@tambahwarga');
 Route::get('editwarga/{nik}','DatawargaController@editwarga');
 Route::post('updatewarga','DatawargaController@updatewarga');
+Route::get('deletewarga/{id}','DatawargaController@deletewarga');
 
-Route::get('infopenyakit', 'InfopenyakitController@infopenyakit');
+Route::get('datapenyakit', 'InfopenyakitController@datapenyakit');
+Route::get('tambahpenyakit','InfopenyakitController@viewtambahpenyakit');
+Route::post('tambahpenyakit','InfopenyakitController@tambahpenyakit');
+Route::get('editpenyakit/{id_penyakit}','InfopenyakitController@editpenyakit');
+Route::post('updatepenyakit','InfopenyakitController@updatepenyakit');
+Route::get('deletepenyakit/{id_penyakit}','InfopenyakitController@deletepenyakit');
 
 Route::get('infobantuan', 'InfobantuanController@infobantuan');
 

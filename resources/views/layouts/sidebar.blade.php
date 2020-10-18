@@ -22,7 +22,7 @@
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-info-circle"></i> <span>Info</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="layout-default.html">Info penyakit</a></li>
+                    <li><a class="nav-link" href="/datapenyakit">Info penyakit</a></li>
                     <li><a class="nav-link" href="layout-transparent.html">Info Bantuan</a></li>
                 </ul>
             </li>
