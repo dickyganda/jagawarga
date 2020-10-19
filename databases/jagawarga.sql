@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Okt 2020 pada 13.04
+-- Waktu pembuatan: 18 Okt 2020 pada 08.58
 -- Versi server: 10.4.8-MariaDB
 -- Versi PHP: 7.3.11
 
@@ -73,16 +73,40 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_penyakit`
+--
+
+CREATE TABLE `tb_penyakit` (
+  `id_penyakit` int(100) NOT NULL,
+  `nama_penyakit` varchar(255) NOT NULL,
+  `gejala` varchar(255) NOT NULL,
+  `waktu_karantina` int(100) NOT NULL,
+  `penanganan_pertama` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_penyakit`
+--
+
+INSERT INTO `tb_penyakit` (`id_penyakit`, `nama_penyakit`, `gejala`, `waktu_karantina`, `penanganan_pertama`) VALUES
+(1, 'hepatitis', 'suhu badan tinggi', 7, 'kompres air hangat'),
+(3, 'HIV', 'Demam tinggi, muntah muntah', 7, 'Kompres air hangat');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tb_warga`
 --
 
 CREATE TABLE `tb_warga` (
-  `nik` varchar(16) NOT NULL,
-  `no_kk` varchar(255) NOT NULL,
+  `id` int(11) NOT NULL,
+  `nik` bigint(100) NOT NULL,
+  `no_kk` bigint(100) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `ttl` date NOT NULL,
   `jk` varchar(255) NOT NULL,
-  `lokasi` varchar(255) NOT NULL,
+  `latitude` varchar(255) NOT NULL,
+  `longitude` varchar(255) NOT NULL,
   `riwayat` varchar(255) NOT NULL,
   `waktu_karantina` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -91,8 +115,8 @@ CREATE TABLE `tb_warga` (
 -- Dumping data untuk tabel `tb_warga`
 --
 
-INSERT INTO `tb_warga` (`nik`, `no_kk`, `nama`, `ttl`, `jk`, `lokasi`, `riwayat`, `waktu_karantina`) VALUES
-('3524130308980001', '3524130308980001', 'Dicky Ganda', '2020-08-03', 'Laki Laki', 'waruwetan', 'kosong', 'kosong');
+INSERT INTO `tb_warga` (`id`, `nik`, `no_kk`, `nama`, `ttl`, `jk`, `latitude`, `longitude`, `riwayat`, `waktu_karantina`) VALUES
+(1, 3524130308980001, 2147483647, 'Dicky Ganda', '2020-08-03', 'Laki-Laki', 'waruwetan', '', 'kosong', 'kosong');
 
 -- --------------------------------------------------------
 
@@ -141,10 +165,16 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indeks untuk tabel `tb_penyakit`
+--
+ALTER TABLE `tb_penyakit`
+  ADD PRIMARY KEY (`id_penyakit`);
+
+--
 -- Indeks untuk tabel `tb_warga`
 --
 ALTER TABLE `tb_warga`
-  ADD PRIMARY KEY (`nik`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `users`
@@ -168,6 +198,18 @@ ALTER TABLE `failed_jobs`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_penyakit`
+--
+ALTER TABLE `tb_penyakit`
+  MODIFY `id_penyakit` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_warga`
+--
+ALTER TABLE `tb_warga`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`

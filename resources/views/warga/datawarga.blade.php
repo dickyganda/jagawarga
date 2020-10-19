@@ -59,13 +59,13 @@ Dashboord
       function deletewarga(id){
        
         Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: 'Hapus Data ?',
+        text: "Anda tidak akan dapat mengembalikan ini!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Hapus'
       }).then((result) => {
         if (result.isConfirmed) {
 
