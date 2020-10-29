@@ -20,19 +20,42 @@ Tambah Data Warga
 
 	<form id="tambahwarga" method="post">
 		{{ csrf_field() }}
-		NIK <input type="text" name="nik" required="required"> <br/>
-		No. KK <input type="text" name="no_kk" required="required"> <br/>
-		Nama <input type="text" name="nama" required="required"> <br/>
-        TTL <input type="date" name="ttl" required="required"> <br/>
+		<div class="form-group">
+      <input type="text" name="nik" required="required" class="form-control form-control-sm" placeholder="NIK">
+    </div>
+
+    <div class="form-group">
+      <input type="text" name="no_kk" required="required" class="form-control form-control-sm" placeholder="Nomor KK">
+    </div>
+    
+    <div class="form-group">
+      <input type="text" name="nama" required="required" class="form-control form-control-sm" placeholder="Nama">
+    </div>
+
+    <div class="form-group">
+      <input type="date" name="ttl" required="required" class="form-control form-control-sm">
+    </div>
+
         Jenis Kelamin <input type="radio" name="jk" value="Laki-Laki">
         <label for="male">Laki-Laki</label>
         <input type="radio" name="jk" value="Perempuan">
         <label for="female">Perempuan</label> <br/>
-        Latitude <input type="text" name="lokasi" required="required"> <br/>
-        Longitude <input type="text" name="lokasi" required="required"> <br/>
-        Riwayat <input type="text" name="riwayat" required="required"> <br/>
-        Waktu Karantina <input type="number" name="waktu_karantina" required="required"> <br/>
-		<input type="submit" value="Tambah">
+
+        <input type="text" class="form-control mb-2 mr-sm-2" name="latitude" placeholder="Latitude">
+
+        <div class="input-group mb-2 mr-sm-2">
+          <input type="text" class="form-control" name="longitude" placeholder="Longitude">
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="riwayat" required="required" class="form-control form-control-sm" placeholder="Riwayat">
+        </div>
+
+        <div class="form-group">
+          <input type="number" name="waktu_karantina" required="required" class="form-control form-control-sm" placeholder="Waktu Karantina">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Tambah</button>
 	</form>
 </div>    
 @endsection

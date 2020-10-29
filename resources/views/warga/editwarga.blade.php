@@ -23,10 +23,26 @@ Edit Data Warga
     @foreach($datawarga as $warga)
     <form id="editWarga" method="post">
          <input type="hidden" name="id" value="{{ $warga->id }}" hidden>
-        NIK <input type="text" name="nik" value="{{ $warga->nik }}" readonly> <br />
-        No. KK <input type="text" required="required" name="no_kk" value="{{ $warga->no_kk }}"> <br />
-        Nama <input type="text" required="required" name="nama" value="{{ $warga->nama }}"> <br />
-        Tanggal Lahir <input type="date" required="required" name="ttl" value="{{ $warga->ttl }}"> <br />
+         <div class="form-group">
+          <label>NIK</label>
+          <input type="text" name="nik" class="form-control form-control-sm" value="{{ $warga->nik }}" readonly>
+        </div>
+
+        <div class="form-group">
+          <label>Nomor KK</label>
+          <input type="text" name="no_kk" required="required" class="form-control form-control-sm" value="{{ $warga->no_kk }}">
+        </div>
+
+        <div class="form-group">
+          <label>Nama</label>
+          <input type="text" name="nama" required="required" class="form-control form-control-sm" value="{{ $warga->nama }}">
+        </div>
+
+        <div class="form-group">
+          <label>Tanggal Lahir</label>
+          <input type="date" name="ttl" required="required" class="form-control form-control-sm" value="{{ $warga->ttl }}">
+        </div>
+
         Jenis Kelamin
 
         @if ( $warga->jk == 'Laki-Laki' )
@@ -41,12 +57,27 @@ Edit Data Warga
         <label for="female">Perempuan</label>
         <br />
 
-        Latitude <input type="text" required="required" name="lokasi" value="{{ $warga->latitude }}"> <br />
-        Longitude <input type="text" required="required" name="lokasi" value="{{ $warga->longitude }}"> <br />
-        Riwayat <input type="text" required="required" name="riwayat" value="{{ $warga->riwayat }}"> <br />
-        Waktu Karantina <input type="text" required="required" name="waktu_karantina"
-            value="{{ $warga->waktu_karantina }}"> <br />
-        <input type="submit" value="Simpan">
+        <div class="form-group">
+          <label>Latitude</label>
+          <input type="text" name="latitude" required="required" class="form-control form-control-sm" value="{{ $warga->latitude }}">
+        </div>
+
+        <div class="form-group">
+          <label>Longitude</label>
+          <input type="text" name="longitude" required="required" class="form-control form-control-sm" value="{{ $warga->longitude }}">
+        </div>
+        
+        <div class="form-group">
+          <label>Riwayat</label>
+          <input type="text" name="riwayat" required="required" class="form-control form-control-sm" value="{{ $warga->riwayat }}">
+        </div>
+
+        <div class="form-group">
+          <label>Waktu Karantina</label>
+          <input type="text" name="waktu_karantina" required="required" class="form-control form-control-sm" value="{{ $warga->waktu_karantina }}">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Simpan</button>
     </form>
     @endforeach
 </div>

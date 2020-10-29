@@ -1,6 +1,6 @@
 @extends('layouts.page')
 @section('title')
-Dashboord    
+Data Warga    
 @endsection
 
 @push('styles')
@@ -9,16 +9,17 @@ Dashboord
 
 @section('content')
 <div class="section-header">
-  <h1>Dashboard</h1>
+  <h1>Data Warga</h1>
 </div>
 
 <div class="section-body">
+  <div class="card w-100">
   <a href="/tambahwarga"> + Tambah Data Baru</a>
 	
 	<br/>
 	<br/>
 
-	<table border="1">
+	<table border="1" id="data_users_reguler">
 		<tr>
 			<th>NIK</th>
 			<th>No. KK</th>
@@ -49,7 +50,8 @@ Dashboord
 			</td>
 		</tr>
 		@endforeach
-	</table>
+  </table>
+</div>
 </div>    
 @endsection
 
@@ -88,5 +90,9 @@ Dashboord
       })
 
       }
+
+      $(document).ready(function() {
+    $('#data_users_reguler').DataTable();
+} );
     </script>
 @endpush
