@@ -32,49 +32,45 @@ function tambahwarga(Request $request){
 	$add->nama = $request->input('nama');
 	$add->ttl = $request->input('ttl');
 	$add->jk = $request->input('jk');
-	$add->latitude = $request->input('latitude');
-	$add->longitude = $request->input('longitude');
-	$add->riwayat = $request->input('riwayat');
-	$add->waktu_karantina = $request->input('waktu_karantina');
+	// $add->latitude = $request->input('latitude');
+	// $add->longitude = $request->input('longitude');
+	// $add->riwayat = $request->input('riwayat');
+	// $add->waktu_karantina = $request->input('waktu_karantina');
 	$add->save();
 	
 	return response()->json(array('status' => 'success', 'reason' => 'Sukses Tambah Data'));
 }
 
 // method untuk edit data warga
-public function editwarga($id)
+public function editwarga($nik)
 {
 	// mengambil data warga berdasarkan id yang dipilih
-	$warga = DB::table('tb_warga')->where('nik',$id)->get();
+	$warga = DB::table('tb_warga')->where('nik',$nik)->get();
 	// passing data warga yang didapat ke view edit.blade.php
 	return view('/warga/editwarga',['datawarga' => $warga]);
 
 }
 
 // update data warga
-public function updatewarga(Request $request)
+public function updatebantuan(Request $request)
 {
-	// update data warga
-	DB::table('tb_warga')->where('id',$request->id)->update([
-		'nik' => $request->nik,
+	// update data penyakit
+	DB::table('tb_warga')->where('nik',$request->nik)->update([
 		'no_kk' => $request->no_kk,
 		'nama' => $request->nama,
-        'ttl' => $request->ttl,
-        'jk' => $request->jk,
-		'latitude' => $request->latitude,
-		'longitude' => $request->longitude,
-        'riwayat' => $request->riwayat,
-        'waktu_karantina' => $request->waktu_karantina
+		'ttl' => $request->ttl,
+		'jk' => $request->jk,
 	]);
 
-	return response()->json(array('status'=> 'success', 'reason' => 'Sukses Edit Data'));
+    return response()->json(array('status'=> 'success', 'reason' => 'Sukses Edit Data'));
+    
 }
 
 // method untuk hapus data warga
-public function deletewarga($id)
+public function deletewarga($nik)
 {
 	// menghapus data warga berdasarkan id yang dipilih
-	DB::table('tb_warga')->where('id',$id)->delete();
+	DB::table('tb_warga')->where('nik',$nik)->delete();
 		
 	return response()->json(array('status'=> 'success', 'reason' => 'Sukses Hapus Data'));
 }

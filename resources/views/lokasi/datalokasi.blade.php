@@ -1,6 +1,6 @@
 @extends('layouts.page')
 @section('title')
-Dashboord    
+Data Lokasi    
 @endsection
 
 @push('styles')
@@ -9,7 +9,7 @@ Dashboord
 
 @section('content')
 <div class="section-header">
-  <h1>Dashboard</h1>
+  <h1>Data Lokasi</h1>
   
 </div>
 
@@ -19,29 +19,25 @@ Dashboord
 	<br/>
 	<br/>
 
-	<table border="1" id="datapenyakit">
+	<table border="1" id="datalokasi">
     <thead>
 		<tr>
-			<th>ID Penyakit</th>
-			<th>Nama Penyakit</th>
-			<th>Gejala</th>
-      <th>Waktu Karantina (Hari)</th>
-      <th>Penanganan Pertama</th>
+			<th>ID lokasi</th>
+			<th>Latitude</th>
+			<th>Longitude</th>
 			<th>Opsi</th>
     </tr>
   </thead>
   <tbody>
-		@foreach($datapenyakit as $penyakit)
+		@foreach($datalokasi as $lokasi)
 		<tr>
-			<td>{{ $penyakit->id_penyakit }}</td>
-			<td>{{ $penyakit->nama_penyakit }}</td>
-			<td>{{ $penyakit->gejala }}</td>
-            <td>{{ $penyakit->waktu_karantina }}</td>
-            <td>{{ $penyakit->penanganan_pertama }}</td>
+			<td>{{ $lokasi->id_lokasi }}</td>
+			<td>{{ $lokasi->latitude }}</td>
+			<td>{{ $lokasi->longitude }}</td>
 			<td>
-				<a href="/editpenyakit/{{ $penyakit->id_penyakit }}">Edit</a>
+				<a href="/editlokasi/{{ $lokasi->id_lokasi }}">Edit</a>
 				|
-				<a href="#"onclick="deletepenyakit({{$penyakit->id_penyakit}})">Hapus</a>
+				<a href="#"onclick="deletelokasi({{$lokasi->id_lokasi}})">Hapus</a>
 			</td>
 		</tr>
     @endforeach
@@ -55,7 +51,7 @@ Dashboord
 
 <script>
 
-    function deletepenyakit(id_penyakit){
+    function deletelokasi(id_lokasi){
      
       Swal.fire({
       title: 'Are you sure?',
@@ -71,7 +67,7 @@ Dashboord
         $.ajax({
           type:'GET',
           dataType: 'json',
-          url: '/deletepenyakit/' + id_penyakit,
+          url: '/deletelokasi/' + id_lokasi,
           success:function(data){
             Swal.fire(
               'Sukses!',
@@ -89,7 +85,7 @@ Dashboord
     }
 
     $(document).ready(function() {
-            $('#datapenyakit').DataTable({
+            $('#datalokasi').DataTable({
                 "order": []
             });
         });

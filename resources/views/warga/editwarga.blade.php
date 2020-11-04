@@ -13,7 +13,7 @@ Edit Data Warga
 </div>
 
 <div class="section-body">
-    <h3>Edit Pegawai</h3>
+    <h3>Edit Data Warga</h3>
 
     <a href="/pegawai"> Kembali</a>
 
@@ -57,7 +57,7 @@ Edit Data Warga
         <label for="female">Perempuan</label>
         <br />
 
-        <div class="form-group">
+        {{-- <div class="form-group">
           <label>Latitude</label>
           <input type="text" name="latitude" required="required" class="form-control form-control-sm" value="{{ $warga->latitude }}">
         </div>
@@ -65,9 +65,9 @@ Edit Data Warga
         <div class="form-group">
           <label>Longitude</label>
           <input type="text" name="longitude" required="required" class="form-control form-control-sm" value="{{ $warga->longitude }}">
-        </div>
+        </div> --}}
         
-        <div class="form-group">
+        {{-- <div class="form-group">
           <label>Riwayat</label>
           <input type="text" name="riwayat" required="required" class="form-control form-control-sm" value="{{ $warga->riwayat }}">
         </div>
@@ -75,7 +75,7 @@ Edit Data Warga
         <div class="form-group">
           <label>Waktu Karantina</label>
           <input type="text" name="waktu_karantina" required="required" class="form-control form-control-sm" value="{{ $warga->waktu_karantina }}">
-        </div>
+        </div> --}}
 
         <button class="btn btn-primary" type="submit">Simpan</button>
     </form>

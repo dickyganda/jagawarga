@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <link rel="stylesheet" href="{{ asset('assets/css/leaflet.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/jquery.dataTables.min.css') }}">
 
     <!-- CSS Libraries -->
 
@@ -49,6 +50,11 @@
     <!-- JS Libraies -->
     <script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
     <script src="{{ asset('assets/js/leaflet.js') }}"></script>
+    <script src="{{ asset('assets/js/leaflet.js.map') }}"></script>
+    <script src="{{ asset('assets/js/leaflet-src.esm.js') }}"></script>
+    <script src="{{ asset('assets/js/leaflet-src.esm.js.map') }}"></script>
+    <script src="{{ asset('assets/js/leaflet-src.js') }}"></script>
+    <script src="{{ asset('assets/js/leaflet-src.js.map') }}"></script>
     <!-- Template JS File -->
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>

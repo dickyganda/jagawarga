@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Warga extends Model
+class Lokasi extends Model
 {
     
-    protected $table = 'tb_warga';
+    protected $table = 'tb_lokasi';
     public $timestamps = false;
-    protected $primaryKey = 'nik';
+    protected $primaryKey = 'id_lokasi';
 }

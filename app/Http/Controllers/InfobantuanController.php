@@ -30,7 +30,9 @@ public function updatebantuan(Request $request)
 {
 	// update data penyakit
 	DB::table('tb_bantuan')->where('id_bantuan',$request->id_bantuan)->update([
-		'bantuan' => $request->bantuan,
+		'jenis_bantuan' => $request->bantuan,
+		'stok' => $request->stok,
+		'satuan' => $request->satuan,
 	]);
 
     return response()->json(array('status'=> 'success', 'reason' => 'Sukses Edit Data'));

@@ -14,6 +14,9 @@
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="/map">Map Dashboard</a></li>
                     <li><a class="nav-link" href="/datawarga">Data Warga</a></li>
+                    <li><a class="nav-link" href="/datapenyakit">Data Penyakit</a></li>
+                    <li><a class="nav-link" href="/databantuan">Data Bantuan</a></li>
+                    <li><a class="nav-link" href="/databantuan">Data Lokasi</a></li>
                 </ul>
             </li>
             <li class="menu-header">Info</li>
@@ -21,12 +24,15 @@
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-info-circle"></i> <span>Info</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="/datapenyakit">Info penyakit</a></li>
+                    <li><a class="nav-link" href="/datapenyakit">Dalam Karantina</a></li>
+                    <li><a class="nav-link" href="/datapenyakit">Riwayat Penyakit Warga</a></li>
                     {{-- <li><a class="nav-link" href="layout-transparent.html">Info Bantuan</a></li> --}}
                 </ul>
             </li>
-            <li class=""><a class="nav-link" href="/databantuan"><i class="fas fa-inbox"></i>
-                    <span>Bantuan</span></a></li>
+            <li class=""><a class="nav-link" href="/databantuan"><i class="fas fa-hands-helping"></i>
+                    <span>Transaksi Bantuan</span></a></li>
+                    <li class=""><a class="nav-link" href="/databantuan"><i class="fas fa-paper-plane"></i>
+                        <span>Penyaluran Bantuan</span></a></li>
             <li class="nav-item dropdown">
                 
             </li>

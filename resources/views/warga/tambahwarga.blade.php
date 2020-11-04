@@ -41,19 +41,21 @@ Tambah Data Warga
         <input type="radio" name="jk" value="Perempuan">
         <label for="female">Perempuan</label> <br/>
 
-        <input type="text" class="form-control mb-2 mr-sm-2" name="latitude" placeholder="Latitude">
+        {{-- <div class="input-group mb-2 mr-sm-2">
+          <input type="text" class="form-control" name="latitude" placeholder="Latitude">
+        </div>
 
         <div class="input-group mb-2 mr-sm-2">
           <input type="text" class="form-control" name="longitude" placeholder="Longitude">
-        </div>
+        </div> --}}
 
-        <div class="form-group">
+        {{-- <div class="form-group">
           <input type="text" name="riwayat" required="required" class="form-control form-control-sm" placeholder="Riwayat">
-        </div>
+        </div> --}}
 
-        <div class="form-group">
+        {{-- <div class="form-group">
           <input type="number" name="waktu_karantina" required="required" class="form-control form-control-sm" placeholder="Waktu Karantina">
-        </div>
+        </div> --}}
 
         <button class="btn btn-primary" type="submit">Tambah</button>
 	</form>

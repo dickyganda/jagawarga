@@ -29,7 +29,7 @@ Route::get('tambahwarga','DatawargaController@viewtambahwarga');
 Route::post('tambahwarga','DatawargaController@tambahwarga');
 Route::get('editwarga/{nik}','DatawargaController@editwarga');
 Route::post('updatewarga','DatawargaController@updatewarga');
-Route::get('deletewarga/{id}','DatawargaController@deletewarga');
+Route::get('deletewarga/{nik}','DatawargaController@deletewarga');
 
 Route::get('datapenyakit', 'InfopenyakitController@datapenyakit');
 Route::get('tambahpenyakit','InfopenyakitController@viewtambahpenyakit');
@@ -42,6 +42,13 @@ Route::get('databantuan', 'InfobantuanController@databantuan');
 Route::get('editbantuan/{id_bantuan}','InfobantuanController@editbantuan');
 Route::post('updatebantuan','InfobantuanController@updatebantuan');
 Route::get('deletebantuan/{id_bantuan}','InfobantuanController@deletebantuan');
+
+Route::get('datalokasi', 'InfolokasiController@datalokasi');
+Route::get('tambahlokasi','InfolokasiController@viewtambahpenyakit');
+Route::post('tambahlokasi','InfolokasiController@tambahpenyakit');
+Route::get('editlokasi/{id_lokasi}','InfolokasiController@editpenyakit');
+Route::post('updatelokasi','InfolokasiController@updatepenyakit');
+Route::get('deletelokai/{id_lokasi}','InfolokasiController@deletepenyakit');
 
 // Route::get('keluhan', 'KeluhanController@keluhan');
 

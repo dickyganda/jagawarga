@@ -19,19 +19,22 @@ Data Warga
 	<br/>
 	<br/>
 
-	<table border="1" id="data_users_reguler">
+	<table border="1" id="datawarga">
+    <thead>
 		<tr>
 			<th>NIK</th>
 			<th>No. KK</th>
 			<th>Nama</th>
       <th>TTL</th>
       <th>Jenis Kelamin</th>
-      <th>Latitude</th>
+      {{-- <th>Latitude</th>
       <th>Longitude</th>
       <th>Riwayat</th>
-      <th>Waktu Karantina</th>
+      <th>Waktu Karantina</th> --}}
 			<th>Opsi</th>
-		</tr>
+    </tr>
+  </thead>
+  <tbody>
 		@foreach($datawarga as $warga)
 		<tr>
 			<td>{{ $warga->nik }}</td>
@@ -39,17 +42,18 @@ Data Warga
 			<td>{{ $warga->nama }}</td>
       <td>{{ $warga->ttl }}</td>
       <td>{{ $warga->jk }}</td>
-      <td>{{ $warga->latitude }}</td>
+      {{-- <td>{{ $warga->latitude }}</td>
       <td>{{ $warga->longitude }}</td>
       <td>{{ $warga->riwayat }}</td>
-      <td>{{ $warga->waktu_karantina }}</td>
+      <td>{{ $warga->waktu_karantina }}</td> --}}
 			<td>
 				<a href="/editwarga/{{ $warga->nik }}">Edit</a>
 				|
-				<a href="#"onclick="deletewarga({{$warga->id}})">Hapus</a>
+				<a href="#"onclick="deletewarga({{$warga->nik}})">Hapus</a>
 			</td>
 		</tr>
-		@endforeach
+    @endforeach
+  </tbody>
   </table>
 </div>
 </div>    
@@ -74,7 +78,7 @@ Data Warga
           $.ajax({
             type:'GET',
             dataType: 'json',
-            url: '/deletewarga/' + id,
+            url: '/deletewarga/' + nik,
             success:function(data){
               Swal.fire(
                 'Sukses!',
@@ -92,7 +96,9 @@ Data Warga
       }
 
       $(document).ready(function() {
-    $('#data_users_reguler').DataTable();
-} );
+            $('#datawarga').DataTable({
+                "order": []
+            });
+        });
     </script>
 @endpush

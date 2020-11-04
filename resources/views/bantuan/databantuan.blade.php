@@ -1,6 +1,6 @@
 @extends('layouts.page')
 @section('title')
-Bantuan    
+Data Bantuan    
 @endsection
 
 @push('styles')
@@ -9,32 +9,40 @@ Bantuan
 
 @section('content')
 <div class="section-header">
-  <h1>Bantuan</h1>
+  <h1>Data Bantuan</h1>
 </div>
 
 <div class="section-body">
-  <a href="/tambahwarga"> + Tambah Data Baru</a>
+  {{-- <a href="/tambahwarga"> + Tambah Data Baru</a> --}}
 	
 	<br/>
 	<br/>
 
-	<table border="1" id="data_users_reguler">
+	<table border="1" id="databantuan">
+    <thead>
 		<tr>
 			<th>ID Bantuan</th>
-			<th>Bantuan</th>
+      <th>Jenis Bantuan</th>
+      <th>Stok</th>
+      <th>Satuan</th>
 			<th>Opsi</th>
-		</tr>
+    </tr>
+  </thead>
+  <tbody>
 		@foreach($databantuan as $bantuan)
 		<tr>
 			<td>{{ $bantuan->id_bantuan }}</td>
-			<td>{{ $bantuan->bantuan}}</td>
+      <td>{{ $bantuan->jenis_bantuan}}</td>
+      <td>{{ $bantuan->stok}}</td>
+      <td>{{ $bantuan->satuan}}</td>
 			<td>
 				<a href="/editbantuan/{{ $bantuan->id_bantuan }}">Edit</a>
 				|
 				<a href="#"onclick="deletebantuan({{$bantuan->id_bantuan}})">Hapus</a>
 			</td>
 		</tr>
-		@endforeach
+    @endforeach
+  </tbody>
 	</table>
 </div>    
 @endsection
@@ -74,5 +82,11 @@ Bantuan
   })
 
   }
+
+  $(document).ready(function() {
+            $('#databantuan').DataTable({
+                "order": []
+            });
+        });
 </script>
 @endpush

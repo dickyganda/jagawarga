@@ -1,6 +1,6 @@
 @extends('layouts.page')
 @section('title')
-Edit Data Bantuan
+Edit Data Lokasi
 @endsection
 
 @push('styles')
@@ -9,7 +9,7 @@ Edit Data Bantuan
 
 @section('content')
 <div class="section-header">
-    <h1>Edit Data Bantuan</h1>
+    <h1>Edit Data Lokasi</h1>
 </div>
 
 <div class="section-body">
@@ -19,12 +19,11 @@ Edit Data Bantuan
     <br />
     <br />
 
-    @foreach($databantuan as $bantuan)
-    <form id="editbantuan" method="post">
-         <input type="hidden" name="id_bantuan" value="{{ $bantuan->id_bantuan }}" hidden>
-        Jenis Bantuan <input type="text" name="jenis_bantuan" value="{{ $bantuan->jenis_bantuan }}"> <br />
-        Stok <input type="text" name="jenis_bantuan" value="{{ $bantuan->stok }}"> <br />
-        Satuan <input type="text" name="jenis_bantuan" value="{{ $bantuan->satuan }}"> <br />
+    @foreach($datalokasi as $lokasi)
+    <form id="editlokasi" method="post">
+         <input type="hidden" name="id_lokasi" value="{{ $lokasi->id_lokasi }}" hidden>
+        Latitude <input type="text" name="latitude" value="{{ $lokasi->latitude }}"> <br />
+        Longitude <input type="text" required="required" name="longitude" value="{{ $lokasi->longitude }}"> <br />
         <input type="submit" value="Simpan">
     </form>
     @endforeach
@@ -34,7 +33,7 @@ Edit Data Bantuan
 @push('scripts')
 
 <script>
-  $("#editbantuan").submit(function(event){
+  $("#editlokasi").submit(function(event){
     event.preventDefault();
 
     var formdata = new FormData(this);
@@ -42,7 +41,7 @@ Edit Data Bantuan
     $.ajax({
       type:'POST',
       dataType: 'json',
-      url: '/updatebantuan',
+      url: '/updatelokasi',
       data: formdata,
       contentType: false,
       cache: false,
@@ -53,7 +52,7 @@ Edit Data Bantuan
           data.reason,
           'success'
         ).then(() => {
-          location.replace("/databantuan");
+          location.replace("/datalokasi");
         });
       }
     });
