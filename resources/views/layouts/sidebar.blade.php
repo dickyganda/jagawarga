@@ -16,7 +16,7 @@
                     <li><a class="nav-link" href="/datawarga">Data Warga</a></li>
                     <li><a class="nav-link" href="/datapenyakit">Data Penyakit</a></li>
                     <li><a class="nav-link" href="/databantuan">Data Bantuan</a></li>
-                    <li><a class="nav-link" href="/databantuan">Data Lokasi</a></li>
+                    <li><a class="nav-link" href="/datalokasi">Data Lokasi</a></li>
                 </ul>
             </li>
             <li class="menu-header">Info</li>
@@ -24,8 +24,8 @@
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-info-circle"></i> <span>Info</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="/datapenyakit">Dalam Karantina</a></li>
-                    <li><a class="nav-link" href="/datapenyakit">Riwayat Penyakit Warga</a></li>
+                    <li><a class="nav-link" href="/datakarantina">Dalam Karantina</a></li>
+                    <li><a class="nav-link" href="/datariwayat">Riwayat Penyakit Warga</a></li>
                     {{-- <li><a class="nav-link" href="layout-transparent.html">Info Bantuan</a></li> --}}
                 </ul>
             </li>

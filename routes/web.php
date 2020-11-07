@@ -44,11 +44,19 @@ Route::post('updatebantuan','InfobantuanController@updatebantuan');
 Route::get('deletebantuan/{id_bantuan}','InfobantuanController@deletebantuan');
 
 Route::get('datalokasi', 'InfolokasiController@datalokasi');
-Route::get('tambahlokasi','InfolokasiController@viewtambahpenyakit');
-Route::post('tambahlokasi','InfolokasiController@tambahpenyakit');
-Route::get('editlokasi/{id_lokasi}','InfolokasiController@editpenyakit');
-Route::post('updatelokasi','InfolokasiController@updatepenyakit');
-Route::get('deletelokai/{id_lokasi}','InfolokasiController@deletepenyakit');
+Route::get('tambahlokasi','InfolokasiController@viewtambahlokasi');
+Route::post('tambahlokasi','InfolokasiController@tambahlokasi');
+Route::get('editlokasi/{id_lokasi}','InfolokasiController@editlokasi');
+Route::post('updatelokasi','InfolokasiController@updatelokasi');
+Route::get('deletelokai/{id_lokasi}','InfolokasiController@deletelokasi');
+
+Route::get('datakarantina', 'InfokarantinaController@datakarantina');
+Route::get('tambahkarantina','InfokarantinaController@viewtambahkarantina');
+Route::post('tambahkarantina','InfokarantinaController@tambahkarantina');
+Route::get('editkarantina/{id_karantina}','InfokarantinaController@editkrantina');
+Route::post('updatekarantina','InfokarantinaController@updatekarantina');
+Route::get('deletekarantina/{id_karantina}','InfokarantinaController@deletekarantina');
+Route::get('tambahwaktukarantina/{id_karantina}','InfokarantinaController@tambahwaktukarantina');
 
 // Route::get('keluhan', 'KeluhanController@keluhan');
 
@@ -57,3 +65,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/map', 'MapController@index')->name('map');
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

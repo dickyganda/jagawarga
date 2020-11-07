@@ -14,7 +14,7 @@ Data Lokasi
 </div>
 
 <div class="section-body">
-    <a href="/tambahpenyakit"> + Tambah Data Baru</a>
+    <a href="/tambahlokasi"> + Tambah Data Baru</a>
 	
 	<br/>
 	<br/>

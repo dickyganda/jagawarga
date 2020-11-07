@@ -39,10 +39,10 @@ class LoginController extends Controller
     }
 
     protected function authenticated(){
-        return redirect('/dashboard');
+        return redirect('/datawarga');
     }
 
     protected function loggedOut(){
-        return redirect('/login');
+        return redirect ('/login');
     }
 }
