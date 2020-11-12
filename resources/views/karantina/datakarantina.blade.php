@@ -24,6 +24,7 @@ Data Karantina
 		<tr>
             <th>ID Karantina</th>
             <th>NIK</th>
+            <th>Nomor KK</th>
             <th>Nama</th>
             <th>ID Penyakit</th>
             <th>Nama Penyakit</th>
@@ -41,40 +42,41 @@ Data Karantina
 		@foreach($datakarantina as $karantina)
 		<tr>
       <td>{{ $karantina->id_karantina }}</td>
-			<td>{{ $karantina->nik }}</td>
-			<td>{{ $karantina->nama }}</td>
-            <td>{{ $karantina->id_penyakit }}</td>
-            <td>{{ $karantina->nama_penyakit }}</td>
-            <td>{{ $karantina->id_lokasi }}</td>
-            <td>{{ $karantina->latitude }}</td>
-            <td>{{ $karantina->longitude }}</td>
-            <td>{{ $karantina->tgl_input }}</td>
-            <td>{{ $karantina->waktu_karantina }}</td>
-            <td>@php
-              $diff = date("Y-m-d", strtotime('+' . $karantina->waktu_karantina . "days", strtotime($karantina->tgl_input)));
-                $diff = date_diff(date_create($diff), date_create(date("Y-m-d")));
-            @endphp
-            @if($diff->format("%R") == '+')
-            0
-            @php
-                $status = "selesai";
-            @endphp
-            @else 
-            @if ($diff->format("%a") == '0')
-            @php
-                $status = "selesai";
-            @endphp
-            @else
-            {{
-                $diff->format("%a hari lagi")
-            }}
-                @php
-                $status = "dalam karantina";
-            @endphp
-            @endif
-            @endif
-            </td>
-            <td>{{$status}}</td>
+      <td>{{ $karantina->nik }}</td>
+      <td>{{ $karantina->no_kk }}</td>
+      <td>{{ $karantina->nama }}</td>
+      <td>{{ $karantina->id_penyakit }}</td>
+      <td>{{ $karantina->nama_penyakit }}</td>
+      <td>{{ $karantina->id_lokasi }}</td>
+      <td>{{ $karantina->latitude }}</td>
+      <td>{{ $karantina->longitude }}</td>
+      <td>{{ $karantina->tgl_input }}</td>
+      <td>{{ $karantina->waktu_karantina }}</td>
+      <td>@php
+        $diff = date("Y-m-d", strtotime('+' . $karantina->waktu_karantina . "days", strtotime($karantina->tgl_input)));
+          $diff = date_diff(date_create($diff), date_create(date("Y-m-d")));
+      @endphp
+      @if($diff->format("%R") == '+')
+      0
+      @php
+          $status = "selesai";
+      @endphp
+      @else 
+      @if ($diff->format("%a") == '0')
+      @php
+          $status = "selesai";
+      @endphp
+      @else
+      {{
+          $diff->format("%a hari lagi")
+      }}
+          @php
+          $status = "dalam karantina";
+      @endphp
+      @endif
+      @endif
+      </td>
+      <td>{{$status}}</td>
 			<td>
 				<a href="/editkarantina/{{ $karantina->id_karantina }}">Edit</a>
 				|

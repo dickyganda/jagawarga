@@ -53,26 +53,26 @@ Route::get('deletelokai/{id_lokasi}','InfolokasiController@deletelokasi');
 Route::get('datakarantina', 'InfokarantinaController@datakarantina');
 Route::get('tambahkarantina','InfokarantinaController@viewtambahkarantina');
 Route::post('tambahkarantina','InfokarantinaController@tambahkarantina');
-Route::get('editkarantina/{id_karantina}','InfokarantinaController@editkrantina');
+Route::get('editkarantina/{id_karantina}','InfokarantinaController@editkarantina');
 Route::post('updatekarantina','InfokarantinaController@updatekarantina');
 Route::get('deletekarantina/{id_karantina}','InfokarantinaController@deletekarantina');
 Route::get('tambahwaktukarantina/{id_karantina}','InfokarantinaController@tambahwaktukarantina');
 
 Route::get('datariwayat', 'InforiwayatController@datariwayat');
-Route::get('tambahkarantina','InforiwayatinaController@viewtambahkarantina');
-Route::post('tambahkarantina','InforiwayatController@tambahkarantina');
-Route::get('editkarantina/{id_karantina}','InforiwayatController@editkrantina');
-Route::post('updatekarantina','InforiwayatController@updatekarantina');
-Route::get('deletekarantina/{id_karantina}','InforiwayatController@deletekarantina');
-Route::get('tambahwaktukarantina/{id_karantina}','InforiwayatController@tambahwaktukarantina');
+Route::get('tambahriwayat','InforiwayatController@viewtambahriwayat');
+Route::post('tambahriwayat','InforiwayatController@tambahriwayat');
+Route::get('editriwayat/{id_riwayat}','InforiwayatController@editriwayat');
+Route::post('updateriwayat','InforiwayatController@updateriwayat');
+Route::get('deleteriwayat/{id_riwayat}','InforiwayatController@deleteriwayat');
+// Route::get('tambahwaktukarantina/{id_karantina}','InforiwayatController@tambahwaktukarantina');
 
 Route::get('datapenyaluranbantuan', 'InfopenyaluranbantuanController@datapenyaluranbantuan');
-Route::get('tambahkarantina','InfopenyaluranbantuanController@viewtambahkarantina');
-Route::post('tambahkarantina','InfopenyaluranbantuanController@tambahkarantina');
-Route::get('editkarantina/{id_karantina}','InfopenyaluranbantuanController@editkrantina');
-Route::post('updatekarantina','InfopenyaluranbantuanController@updatekarantina');
-Route::get('deletekarantina/{id_karantina}','InfopenyaluranbantuanController@deletekarantina');
-Route::get('tambahwaktukarantina/{id_karantina}','InfopenyaluranController@tambahwaktukarantina');
+Route::get('tambahpenyaluranbantuan','InfopenyaluranbantuanController@viewtambahpenyaluranbantuan');
+Route::post('tambahpenyaluranbantuan','InfopenyaluranbantuanController@tambahpenyaluranbantuan');
+Route::get('editpenyaluranbantuan/{id_penyaluran_bantuan}','InfopenyaluranbantuanController@editpenyaluranbantuan');
+Route::post('updatepenyaluranbantuan','InfopenyaluranbantuanController@updatepnyaluranbantuan');
+Route::get('deletepenyaluranbantuan/{id_penyaluran_bantuan}','InfopenyaluranbantuanController@deletepenyaluranbantuan');
+// Route::get('tambahwaktukarantina/{id_karantina}','InfopenyaluranController@tambahwaktukarantina');
 
 // Route::get('keluhan', 'KeluhanController@keluhan');
 

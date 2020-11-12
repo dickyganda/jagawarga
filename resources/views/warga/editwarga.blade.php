@@ -22,7 +22,7 @@ Edit Data Warga
 
     @foreach($datawarga as $warga)
     <form id="editWarga" method="post">
-         <input type="hidden" name="id" value="{{ $warga->id }}" hidden>
+         {{-- <input type="hidden" name="id" value="{{ $warga->id }}" hidden> --}}
          <div class="form-group">
           <label>NIK</label>
           <input type="text" name="nik" class="form-control form-control-sm" value="{{ $warga->nik }}" readonly>

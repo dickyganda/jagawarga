@@ -24,10 +24,10 @@ Data Penyaluran Bantuan
 		<tr>
             <th>ID Penyaluran Bantuan</th>
             <th>NIK</th>
-            <th>Nama</th>
+            <th>Nama Penerima</th>
             <th>ID Bantuan</th>
             <th>Jenis Bantuan</th>
-            <th>Kebutuhan</th>
+            <th>Qty</th>
             {{-- <th>Latitude</th>
             <th>Longiitude</th> --}}
             {{-- <th>Tanggal Input</th> --}}
@@ -40,12 +40,12 @@ Data Penyaluran Bantuan
   <tbody>
 		@foreach($datapenyaluranbantuan as $penyaluranbantuan)
 		<tr>
-      <td>{{ $penyaluranbantuan->id_penyaluranbantuan }}</td>
+      <td>{{ $penyaluranbantuan->id_penyaluran_bantuan }}</td>
 			<td>{{ $penyaluranbantuan->nik }}</td>
 			<td>{{ $penyaluranbantuan->nama }}</td>
-            <td>{{ $penyaluranbantuan->id_bantuan }}</td>
-            <td>{{ $penyaluranbantuan->jenis_bantuan }}</td>
-            <td>{{ $penyaluranbantuan->kebutuhan }}</td>
+      <td>{{ $penyaluranbantuan->id_bantuan }}</td>
+      <td>{{ $penyaluranbantuan->jenis_bantuan }}</td>
+      <td>{{ $penyaluranbantuan->qty }}</td>
             {{-- <td>{{ $riwayat->latitude }}</td>
             <td>{{ $riwayat->longitude }}</td> --}}
             {{-- <td>{{ $karantina->tgl_input }}</td>
@@ -76,9 +76,9 @@ Data Penyaluran Bantuan
             </td> --}}
             {{-- <td>{{$status}}</td> --}}
 			<td>
-				<a href="/editkarantina/{{ $penyaluranbantuan->id_penyaluranbantuan }}">Edit</a>
+				<a href="/editpenyaluranbantuan/{{ $penyaluranbantuan->id_penyaluran_bantuan }}">Edit</a>
 				|
-        <a href="#"onclick="deletekarantina({{$riwayat->id_penyaluranbantuan}})">Hapus</a>
+        <a href="#"onclick="deletepenyaluranbantuan({{$penyaluranbantuan->id_penyaluran_bantuan}})">Hapus</a>
         {{-- |
         @if ($status=="selesai"){
         <a href="#"onclick="tambahwaktukarantina({{$karantina->id_karantina}})">Tambah</a>
@@ -98,7 +98,7 @@ Data Penyaluran Bantuan
 
 <script>
 
-    function deletepenyakit(id_karantina){
+    function deletepenyaluranbantuan(id_penyaluran_bantuan){
      
       Swal.fire({
       title: 'Are you sure?',
@@ -114,7 +114,7 @@ Data Penyaluran Bantuan
         $.ajax({
           type:'GET',
           dataType: 'json',
-          url: '/deletekarantina/' + id_karantina,
+          url: '/deletepenyaluranbantuan/' + id_penyaluran_bantuan,
           success:function(data){
             Swal.fire(
               'Sukses!',
@@ -132,43 +132,43 @@ Data Penyaluran Bantuan
     }
 
     $(document).ready(function() {
-            $('#datakarantina').DataTable({
+            $('#datapenyaluranbantuan').DataTable({
                 "order": []
             });
         });
         
-        function tambahwaktukarantina(id_karantina){
+  // //       function tambahwaktukarantina(id_karantina){
      
-     Swal.fire({
-     title: 'Are you sure?',
-     text: "You won't be able to revert this!",
-     icon: 'warning',
-     showCancelButton: true,
-     confirmButtonColor: '#3085d6',
-     cancelButtonColor: '#d33',
-     confirmButtonText: 'Yes, delete it!'
-   }).then((result) => {
-     if (result.isConfirmed) {
+  // //    Swal.fire({
+  // //    title: 'Are you sure?',
+  // //    text: "You won't be able to revert this!",
+  // //    icon: 'warning',
+  // //    showCancelButton: true,
+  // //    confirmButtonColor: '#3085d6',
+  // //    cancelButtonColor: '#d33',
+  // //    confirmButtonText: 'Yes, delete it!'
+  // //  }).then((result) => {
+  // //    if (result.isConfirmed) {
 
-       $.ajax({
-         type:'GET',
-         dataType: 'json',
-         url: '/tambahwaktukarantina/' + id_karantina,
-         success:function(data){
-           Swal.fire(
-             'Sukses!',
-             data.reason,
-             'success'
-           ).then(() => {
-             location.reload();
-           });
-         }
-       });
+  // //      $.ajax({
+  // //        type:'GET',
+  // //        dataType: 'json',
+  // //        url: '/tambahwaktukarantina/' + id_karantina,
+  // //        success:function(data){
+  // //          Swal.fire(
+  // //            'Sukses!',
+  // //            data.reason,
+  // //            'success'
+  // //          ).then(() => {
+  // //            location.reload();
+  // //          });
+  // //        }
+  // //      });
 
-     }
-   })
+  // //    }
+  // //  })
 
-   }
+  //  }
   </script>
     
 @endpush

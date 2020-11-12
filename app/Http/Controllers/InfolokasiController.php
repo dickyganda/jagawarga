@@ -37,7 +37,7 @@ class InfolokasiController extends Controller
 public function editlokasi($id_lokasi)
 {
 	// mengambil data penyakit berdasarkan id yang dipilih
-	$penyakit = DB::table('tb_lokasi')->where('id_lokasi',$id_lokasi)->get();
+	$lokasi = DB::table('tb_lokasi')->where('id_lokasi',$id_lokasi)->get();
 	// passing data penyakit yang didapat ke view edit.blade.php
 	return view('/lokasi/editlokasi',['datalokasi' => $lokasi]);
 
@@ -48,7 +48,8 @@ public function updatelokasi(Request $request)
 {
 	// update data penyakit
 	DB::table('tb_lokasi')->where('id_lokasi',$request->id_lokasi)->update([
-		'latitude' => $request->latitude,
+        'nik' => $request->no_kk,
+        'latitude' => $request->latitude,
 		'longitude' => $request->longitude,
 	]);
 

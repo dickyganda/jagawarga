@@ -62,10 +62,10 @@ public function updatekarantina(Request $request)
 	DB::table('tb_karantina')->where('id_karantina',$request->id_karantina)->update([
 		'nik' => $request->nik,
         'nama' => $request->nama,
-        'id_lokasi' => $request->id_lokasi,
+        // 'id_lokasi' => $request->id_lokasi,
 		'latitude' => $request->latitude,
         'longitude' => $request->longitude,
-        'id-penyakit' => $request->id_penyakit,
+        // 'id-penyakit' => $request->id_penyakit,
         'nama_penyakit' => $request->nama_penyakit,
         'tgl_input' => $request->tgl_input,
         'waktu_karantina' => $request->waktu_karantina,
@@ -75,7 +75,7 @@ public function updatekarantina(Request $request)
     
 }
 
-public function deletekarantina($nik)
+public function deletekarantina($id_karantina)
 {
 	// menghapus data penyakit berdasarkan id yang dipilih
 	DB::table('tb_karantina')->where('id_karantina',$id_karantina)->delete();
@@ -85,9 +85,6 @@ public function deletekarantina($nik)
 
 public function tambahwaktukarantina($id_karantina)
 {
-
-    
-
     $jumlah_hari = Karantina::find($id_karantina);
     $jumlah_hari->tgl_input = date("Y-m-d");
     $jumlah_hari->save();

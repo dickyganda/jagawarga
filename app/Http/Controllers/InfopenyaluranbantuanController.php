@@ -22,14 +22,14 @@ class InfopenyaluranbantuanController extends Controller
     	return view('/penyaluranbantuan/datapenyaluranbantuan',['datapenyaluranbantuan' => $datapenyaluranbantuan]);
     }
 
-    function viewtambahkarantina(){
+    function viewtambahpenyaluranbantuan(){
 
         // memanggil view tambahpenyakit
-        return view('/karantina/tambahkarantina');
+        return view('/penyaluranbantuan/tambahpenyaluranbantuan');
     }
 
-    function tambahkarantina(Request $request){
-        $add = new Karantina;
+    function tambahpenyaluranbantuan(Request $request){
+        $add = new Penyaluranbantuan;
         $add->nik = $request->input('nik');
         $add->nama = $request->input('nama');
         $add->id_lokasi = $request->input('id_lokasi');
@@ -46,20 +46,20 @@ class InfopenyaluranbantuanController extends Controller
     }
 
     // method untuk edit data penyakit
-public function editkarantina($id_karantina)
+public function editpenyaluranbantuan($id_penyaluran_bantuan)
 {
 	// mengambil data penyakit berdasarkan id yang dipilih
-	$karantina = DB::table('tb_karantina')->where('id_karantina',$id_karantina)->get();
+	$penyaluranbantuan = DB::table('tb_penyaluran_bantuan')->where('id_penyaluran_bantuan',$id_penyaluran_bantuan)->get();
 	// passing data penyakit yang didapat ke view edit.blade.php
-	return view('/karantina/editkarantina',['datakarantina' => $karantina]);
+	return view('/penyaluranbantuan/editpenyaluranbantuan',['datapenyaluranbantuan' => $penyaluranbantuan]);
 
 }
 
 // update data penyakit
-public function updatekarantina(Request $request)
+public function updatepenyaluranbantuan(Request $request)
 {
 	// update data penyakit
-	DB::table('tb_karantina')->where('id_karantina',$request->id_karantina)->update([
+	DB::table('tb_penyaluranbantuan')->where('id_penyaluran_bantuan',$request->id_penyaluran_bantuan)->update([
 		'nik' => $request->nik,
         'nama' => $request->nama,
         'id_lokasi' => $request->id_lokasi,
@@ -75,25 +75,23 @@ public function updatekarantina(Request $request)
     
 }
 
-public function deletekarantina($nik)
+public function deletepenyaluranbantuan($id_penyaluran_bantuan)
 {
 	// menghapus data penyakit berdasarkan id yang dipilih
-	DB::table('tb_karantina')->where('id_karantina',$id_karantina)->delete();
+	DB::table('tb_penyaluran_bantuan')->where('id_penyaluran_bantuan',$id_penyaluran_bantuan)->delete();
 		
 	return response()->json(array('status'=> 'success', 'reason' => 'Sukses Hapus Data'));
 }
 
-public function tambahwaktukarantina($id_karantina)
-{
+// public function tambahwaktukarantina($id_karantina)
+// {
 
+//     $jumlah_hari = Karantina::find($id_karantina);
+//     $jumlah_hari->tgl_input = date("Y-m-d");
+//     $jumlah_hari->save();
+
+//     return response()->json(array('status'=> 'success', 'reason' => 'Sukses Edit Data'));
     
-
-    $jumlah_hari = Karantina::find($id_karantina);
-    $jumlah_hari->tgl_input = date("Y-m-d");
-    $jumlah_hari->save();
-
-    return response()->json(array('status'=> 'success', 'reason' => 'Sukses Edit Data'));
-    
-}
+// }
 
 }

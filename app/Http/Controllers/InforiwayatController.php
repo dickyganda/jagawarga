@@ -22,13 +22,13 @@ class InforiwayatController extends Controller
     	return view('/riwayat/datariwayat',['datariwayat' => $datariwayat]);
     }
 
-    function viewtambahkarantina(){
+    function viewtambahriwayat(){
 
         // memanggil view tambahpenyakit
-        return view('/karantina/tambahkarantina');
+        return view('/riwayat/tambahriwayat');
     }
 
-    function tambahkarantina(Request $request){
+    function tambahriwayat(Request $request){
         $add = new Karantina;
         $add->nik = $request->input('nik');
         $add->nama = $request->input('nama');

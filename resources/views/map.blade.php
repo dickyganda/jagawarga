@@ -5,7 +5,7 @@ Map
 
 @push('styles')
 <style>
-#mapid { height: 180px; }
+#mapid { height: 400px; }
 </style>
     
 @endpush
@@ -24,7 +24,7 @@ Map
 
 @push('scripts')
 <script>
-  var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+  var mymap = L.map('mapid').setView([-7.096270, 112.285988], 19);
 
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -32,7 +32,12 @@ Map
     id: 'mapbox/streets-v11',
     tileSize: 512,
     zoomOffset: -1,
-    accessToken: 'your.mapbox.access.token'
+    accessToken: 'pk.eyJ1IjoiZGlja3lnYW5kYSIsImEiOiJja2hic3F0YzgwMGNiMnRtcGo3ejkwMHM4In0._C7h0v7qstA2nVgz6DPi9g'
 }).addTo(mymap);
+
+L.marker([-7.099127, 112.283545]).addTo(mymap)
+    .bindPopup('IKI OMAHKU :D')
+    .openPopup();
+    
 </script>    
 @endpush

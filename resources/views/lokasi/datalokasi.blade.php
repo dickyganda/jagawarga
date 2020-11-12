@@ -22,7 +22,8 @@ Data Lokasi
 	<table border="1" id="datalokasi">
     <thead>
 		<tr>
-			<th>ID lokasi</th>
+      <th>ID lokasi</th>
+      <th>Nomor KK</th>
 			<th>Latitude</th>
 			<th>Longitude</th>
 			<th>Opsi</th>
@@ -31,7 +32,8 @@ Data Lokasi
   <tbody>
 		@foreach($datalokasi as $lokasi)
 		<tr>
-			<td>{{ $lokasi->id_lokasi }}</td>
+      <td>{{ $lokasi->id_lokasi }}</td>
+      <td>{{ $lokasi->no_kk }}</td>
 			<td>{{ $lokasi->latitude }}</td>
 			<td>{{ $lokasi->longitude }}</td>
 			<td>
