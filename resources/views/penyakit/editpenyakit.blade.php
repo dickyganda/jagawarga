@@ -21,11 +21,28 @@ Edit Data Penyakit
 
     @foreach($datapenyakit as $penyakit)
     <form id="editpenyakit" method="post">
-         <input type="hidden" name="id_penyakit" value="{{ $penyakit->id_penyakit }}" hidden>
-        Nama Penyakit <input type="text" name="nama_penyakit" value="{{ $penyakit->nama_penyakit }}"> <br />
-        Gejala <input type="text" required="required" name="gejala" value="{{ $penyakit->gejala }}"> <br />
-        Waktu Karantina <input type="text" required="required" name="waktu_karantina" value="{{ $penyakit->waktu_karantina }}"> <br />
-        Penanganan Pertama <input type="text" required="required" name="penanganan_pertama" value="{{ $penyakit->penanganan_pertama }}"> <br />
+        <input type="hidden" name="id_penyakit" value="{{ $penyakit->id_penyakit }}" hidden>
+
+        <div class="form-group">
+          <label>Nama Penyakit</label>
+          <input type="text" name="nama_penyakit" class="form-control form-control-sm" value="{{ $penyakit->nama_penyakit }}" >
+        </div>
+        
+        <div class="form-group">
+          <label>Gejala</label>
+          <input type="text" name="gejala" class="form-control form-control-sm" value="{{ $penyakit->gejala }}" >
+        </div>
+        
+        <div class="form-group">
+          <label>Waktu Karantina</label>
+          <input type="text" name="waktu_karantina" class="form-control form-control-sm" value="{{ $penyakit->waktu_karantina }}" >
+        </div>
+
+        <div class="form-group">
+          <label>Penanganan Pertama</label>
+          <input type="text" name="penanganan_pertama" class="form-control form-control-sm" value="{{ $penyakit->penanganan_pertama }}" >
+        </div>
+        
         <input type="submit" value="Simpan">
     </form>
     @endforeach

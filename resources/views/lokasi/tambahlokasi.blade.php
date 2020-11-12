@@ -19,9 +19,20 @@ Tambah Data Lokasi
 	<br/>
 
 	<form id="tambahlokasi" method="post">
-		{{ csrf_field() }}
-		Latitude <input type="text" name="latitude" required="required"> <br/>
-		Longitude <input type="text" name="longitude" required="required"> <br/>
+    {{ csrf_field() }}
+    
+    <div class="form-group">
+      <input type="text" name="no_kk" required="required" class="form-control form-control-sm" placeholder="Nomor KK">
+    </div>
+
+    <div class="form-group">
+      <input type="text" name="latitude" required="required" class="form-control form-control-sm" placeholder="Latitude">
+    </div>
+
+    <div class="form-group">
+      <input type="text" name="longitude" required="required" class="form-control form-control-sm" placeholder="Longitude">
+    </div>
+		
 		<input type="submit" value="Tambah">
 	</form>
 </div>    

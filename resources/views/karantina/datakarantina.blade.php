@@ -26,9 +26,9 @@ Data Karantina
             <th>NIK</th>
             <th>Nomor KK</th>
             <th>Nama</th>
-            <th>ID Penyakit</th>
+            {{-- <th>ID Penyakit</th> --}}
             <th>Nama Penyakit</th>
-            <th>ID Lokasi</th>
+            {{-- <th>ID Lokasi</th> --}}
             <th>Latitude</th>
             <th>Longiitude</th>
             <th>Tanggal Input</th>
@@ -45,9 +45,9 @@ Data Karantina
       <td>{{ $karantina->nik }}</td>
       <td>{{ $karantina->no_kk }}</td>
       <td>{{ $karantina->nama }}</td>
-      <td>{{ $karantina->id_penyakit }}</td>
+      {{-- <td>{{ $karantina->id_penyakit }}</td> --}}
       <td>{{ $karantina->nama_penyakit }}</td>
-      <td>{{ $karantina->id_lokasi }}</td>
+      {{-- <td>{{ $karantina->id_lokasi }}</td> --}}
       <td>{{ $karantina->latitude }}</td>
       <td>{{ $karantina->longitude }}</td>
       <td>{{ $karantina->tgl_input }}</td>

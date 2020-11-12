@@ -25,9 +25,9 @@ Data Riwayat
             <th>ID Riwayat</th>
             <th>NIK</th>
             <th>Nama</th>
-            <th>ID Penyakit</th>
+            {{-- <th>ID Penyakit</th> --}}
             <th>Nama Penyakit</th>
-            <th>ID Lokasi</th>
+            {{-- <th>ID Lokasi</th> --}}
             <th>Latitude</th>
             <th>Longiitude</th>
             {{-- <th>Tanggal Input</th> --}}
@@ -43,11 +43,11 @@ Data Riwayat
       <td>{{ $riwayat->id_riwayat }}</td>
 			<td>{{ $riwayat->nik }}</td>
 			<td>{{ $riwayat->nama }}</td>
-            <td>{{ $riwayat->id_penyakit }}</td>
-            <td>{{ $riwayat->nama_penyakit }}</td>
-            <td>{{ $riwayat->id_lokasi }}</td>
-            <td>{{ $riwayat->latitude }}</td>
-            <td>{{ $riwayat->longitude }}</td>
+      {{-- <td>{{ $riwayat->id_penyakit }}</td> --}}
+      <td>{{ $riwayat->nama_penyakit }}</td>
+      {{-- <td>{{ $riwayat->id_lokasi }}</td> --}}
+      <td>{{ $riwayat->latitude }}</td>
+      <td>{{ $riwayat->longitude }}</td>
             {{-- <td>{{ $karantina->tgl_input }}</td>
             <td>{{ $karantina->waktu_karantina }}</td> --}}
             {{-- <td>@php
@@ -132,7 +132,7 @@ Data Riwayat
     }
 
     $(document).ready(function() {
-            $('#datakarantina').DataTable({
+            $('#datariwayat').DataTable({
                 "order": []
             });
         });

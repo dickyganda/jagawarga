@@ -49,7 +49,11 @@ class InfokarantinaController extends Controller
 public function editkarantina($id_karantina)
 {
 	// mengambil data penyakit berdasarkan id yang dipilih
-	$karantina = DB::table('tb_karantina')->where('id_karantina',$id_karantina)->get();
+	$karantina = DB::table('tb_karantina as k')
+            ->join('tb_warga as w', 'w.nik', '=', 'k.nik')
+            ->join('tb_penyakit as p', 'p.id_penyakit', '=', 'k.id_penyakit')
+            ->join('tb_lokasi as l', 'l.id_lokasi', '=', 'k.id_lokasi')
+            ->get();
 	// passing data penyakit yang didapat ke view edit.blade.php
 	return view('/karantina/editkarantina',['datakarantina' => $karantina]);
 

@@ -28,27 +28,27 @@ Edit Data Karantina
           <input type="text" name="nik" class="form-control form-control-sm" value="{{ $karantina->nik }}">
         </div>
 
-        {{-- <div class="form-group">
+        <div class="form-group">
           <label>Nama</label>
           <input type="text" name="nama" class="form-control form-control-sm" value="{{ $karantina->nama }}">
-        </div> --}}
+        </div>
 
-        {{-- <div class="form-group">
+        <div class="form-group">
           <label>Latitude</label>
           <input type="text" name="latitude" class="form-control form-control-sm" value="{{ $karantina->latitude }}">
-        </div> --}}
+        </div>
         {{-- ID Lokasi <input type="text" required="required" name="id_lokasi" value="{{ $karantina->id_lokasi }}"> <br /> --}}
         
-        {{-- <div class="form-group">
+        <div class="form-group">
           <label>Longtude</label>
           <input type="text" name="longitude" class="form-control form-control-sm" value="{{ $karantina->longitude }}">
-        </div> --}}
+        </div>
 
         {{-- ID Penyakit <input type="text" required="required" name="id_penyakit" value="{{ $karantina->id_penyakit }}"> <br /> --}}
-        {{-- <div class="form-group">
+        <div class="form-group">
           <label>Nama Penyakit</label>
           <input type="text" name="nama_penyakit" class="form-control form-control-sm" value="{{ $karantina->nama_penyakit }}">
-        </div> --}}
+        </div>
         
         <div class="form-group">
           <label>Tanggal Input</label>

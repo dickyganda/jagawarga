@@ -22,9 +22,22 @@ Edit Data Lokasi
     @foreach($datalokasi as $lokasi)
     <form id="editlokasi" method="post">
          <input type="hidden" name="id_lokasi" value="{{ $lokasi->id_lokasi }}" hidden>
-        Nomor KK <input type="text" name="nik" value="{{ $lokasi->no_kk }}"> <br />
-        Latitude <input type="text" name="latitude" value="{{ $lokasi->latitude }}"> <br />
-        Longitude <input type="text" required="required" name="longitude" value="{{ $lokasi->longitude }}"> <br />
+
+         <div class="form-group">
+          <label>Nomor KK</label>
+          <input type="text" name="nomor_kk" class="form-control form-control-sm" value="{{ $lokasi->no_kk }}" >
+        </div>
+
+        <div class="form-group">
+          <label>Latitude</label>
+          <input type="text" name="latitude" class="form-control form-control-sm" value="{{ $lokasi->latitude }}" >
+        </div>
+
+        <div class="form-group">
+          <label>Longitude</label>
+          <input type="text" name="longitude" class="form-control form-control-sm" value="{{ $lokasi->longitude }}" >
+        </div>
+        
         <input type="submit" value="Simpan">
     </form>
     @endforeach
