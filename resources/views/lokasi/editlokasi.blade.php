@@ -25,7 +25,7 @@ Edit Data Lokasi
 
          <div class="form-group">
           <label>Nomor KK</label>
-          <input type="text" name="nomor_kk" class="form-control form-control-sm" value="{{ $lokasi->no_kk }}" >
+          <input type="text" name="no_kk" class="form-control form-control-sm" value="{{ $lokasi->no_kk }}" >
         </div>
 
         <div class="form-group">
