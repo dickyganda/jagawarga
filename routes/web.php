@@ -51,7 +51,7 @@ Route::get('tambahlokasi','InfolokasiController@viewtambahlokasi');
 Route::post('tambahlokasi','InfolokasiController@tambahlokasi');
 Route::get('editlokasi/{id_lokasi}','InfolokasiController@editlokasi');
 Route::post('updatelokasi','InfolokasiController@updatelokasi');
-Route::get('deletelokai/{id_lokasi}','InfolokasiController@deletelokasi');
+Route::get('deletelokasi/{id_lokasi}','InfolokasiController@deletelokasi');
 
 Route::get('datakarantina', 'InfokarantinaController@datakarantina');
 Route::get('tambahkarantina','InfokarantinaController@viewtambahkarantina');
@@ -80,6 +80,3 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/map', 'MapController@index')->name('map');
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');

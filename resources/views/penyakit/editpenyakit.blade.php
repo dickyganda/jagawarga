@@ -60,7 +60,7 @@ Edit Data Penyakit
     $.ajax({
       type:'POST',
       dataType: 'json',
-      url: '/updatebantuan',
+      url: '/updatepenyakit',
       data: formdata,
       contentType: false,
       cache: false,

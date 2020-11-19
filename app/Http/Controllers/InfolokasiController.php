@@ -66,4 +66,15 @@ public function deletelokasi($id_lokasi)
 	return response()->json(array('status'=> 'success', 'reason' => 'Sukses Hapus Data'));
 }
 
+public function getlokasi(Request $request)
+{
+	// menghapus data warga berdasarkan id yang dipilih
+	// Warga::where('nik',$request->input('nik'))->first();
+	$getwarga = DB::table('tb_warga as w')->where('nik',$request->input('nik'))
+	->join('tb_lokasi as l', 'l.no_kk','=', 'w.no_kk')
+	->first();
+		
+	return response()->json($getlokasi);
+}
+
 }
