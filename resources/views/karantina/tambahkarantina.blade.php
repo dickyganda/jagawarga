@@ -19,15 +19,49 @@ Tambah Data Karantina
 	<br/>
 
 	<form id="tambahkarantina" method="post">
-		{{ csrf_field() }}
-        NIK <input type="text" name="nik" required="required"> <br/>
-        Nomor KK <input type="text" name="nik" required="required"> <br/>
-        Nama <input type="text" name="nama" required="required"> <br/>
-        Nama Penyakit <input type="text" name="nama_penyakit" required="required"> <br/>
-        Latitude <input type="text" name="latitude" required="required"> <br/>
-        Longitude <input type="text" name="longitude" required="required"> <br/>
-        Tanggal Input <input type="date" name="tgl_input" required="required"> <br/>
-        Waktu Karantina <input type="text" name="sisa_waktu" required="required"> <br/>
+    {{ csrf_field() }}
+    <select id="nik" name="nik" class="form-control select2" onchange="selectTypeNik(this)" required>
+    <option></option>
+    @foreach ($datawarga as $warga)
+    <option value="{{$warga->nik}}">{{$warga->nik}}</option>
+    @endforeach
+    </select>
+        {{-- NIK <input type="text" name="nik" required="required"> <br/> --}}
+
+        {{-- Nomor KK <input type="text" id="no_kk" name="no_kk" required="required"> <br/> --}}
+        <div class="form-group">
+          <input type="text" name="no_kk" id="no_kk" required="required" class="form-control form-control-sm" placeholder="Nomor KK">
+        </div>
+
+        {{-- Nama <input type="text" id="nama" name="nama" required="required"> <br/> --}}
+        <div class="form-group">
+          <input type="text" name="nama" id="nama" required="required" class="form-control form-control-sm" placeholder="Nama">
+        </div>
+
+        <select id="nama_penyakit" name="nama_penyakit" class="form-control select2" onchange="selectTypeNamapenyakit(this)" required>
+          <option></option>
+          @foreach ($datapenyakit as $penyakit)
+          <option value="{{$penyakit->id_penyakit}}">{{$penyakit->nama_penyakit}}</option>
+          @endforeach
+          </select>
+        {{-- Nama Penyakit <input type="text" id="nama_penyakit" name="nama_penyakit" required="required"> <br/> --}}
+         <input type="hidden" id="id_lokasi" name="id_lokasi" required="required"> <br/>
+
+         <div class="form-group">
+          <input type="text" name="latitude" id="latitude" required="required" class="form-control form-control-sm" placeholder="Latitude">
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="longitude" id="longitude" required="required" class="form-control form-control-sm" placeholder="Longitude">
+        </div>
+
+        {{-- Latitude <input type="text" id="latitude" name="latitude" required="required"> <br/>
+        Longitude <input type="text" id="longitude" name="longitude" required="required"> <br/> --}}
+        {{-- Tanggal Input <input type="date" id="tgl_input" name="tgl_input" required="required" hidden> <br/> --}}
+        <div class="form-group">
+          <input type="text" name="waktu_karantina" id="waktu_karantina" required="required" class="form-control form-control-sm" placeholder="Waktu Karantina">
+        </div>
+        {{-- Waktu Karantina <input type="text" id="waktu_karantina" name="sisa_waktu" required="required"> <br/> --}}
 		<input type="submit" value="Tambah">
 	</form>
 </div>    
@@ -62,6 +96,57 @@ Tambah Data Karantina
 
 
   });
+
+  $(document).ready(function() {
+    $('#nik').select2({
+      theme: 'bootstrap4',
+      placeholder: "Pilih NIK"
+    });
+
+    $('#nama_penyakit').select2({
+      theme: 'bootstrap4',
+      placeholder: "Pilih Nama Penyakit"
+    });
+  });
+
+  function selectTypeNik(item){
+    var formdata= new FormData();
+    formdata.append('nik', item.options[item.selectedIndex].value);
+    $.ajax({
+      type: 'POST',
+      dataType:'json',
+      url: 'getwarga',
+      data: formdata,
+      contentType: false,
+      cache: false,
+      processData: false,
+      success:function(data){ 
+        $('#no_kk').val(data.no_kk);
+        $('#nama').val(data.nama);
+        $('#id_lokasi').val(data.id_lokasi);
+        $('#latitude').val(data.latitude);
+        $('#longitude').val(data.longitude);
+      }
+    })
+  }
+
+  function selectTypeNamapenyakit(item){
+    var formdata= new FormData();
+    formdata.append('id_penyakit', item.options[item.selectedIndex].value);
+    $.ajax({
+      type: 'POST',
+      dataType:'json',
+      url: 'getpenyakit',
+      data: formdata,
+      contentType: false,
+      cache: false,
+      processData: false,
+      success:function(data){ 
+        $('#waktu_karantina').val(data.waktu_karantina);
+        console.log(data);
+      }
+    })
+  }
 </script>
 
 @endpush

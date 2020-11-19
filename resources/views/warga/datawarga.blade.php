@@ -10,11 +10,57 @@ Data Warga
 @section('content')
 <div class="section-header">
   <h1>Data Warga</h1>
+
+  {{-- notifikasi form validasi --}}
+  @if ($errors->has('file'))
+  <span class="invalid-feedback" role="alert">
+    <strong>{{ $errors->first('file') }}</strong>
+  </span>
+  @endif
+
+  {{-- notifikasi sukses --}}
+  @if ($sukses = Session::get('sukses'))
+  <div class="alert alert-success alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button> 
+    <strong>{{ $sukses }}</strong>
+  </div>
+  @endif
 </div>
 
 <div class="section-body">
   <div class="card w-100">
   <a href="/tambahwarga"> + Tambah Data Baru</a>
+
+  <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
+    IMPORT EXCEL
+  </button>
+
+  <!-- Import Excel -->
+  <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <form method="post" action="import_excel" enctype="multipart/form-data">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
+          </div>
+          <div class="modal-body">
+
+            {{ csrf_field() }}
+
+            <label>Pilih file excel</label>
+            <div class="form-group">
+              <input type="file" name="file" required="required">
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Import</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 	
 	<br/>
 	<br/>
@@ -27,10 +73,6 @@ Data Warga
 			<th>Nama</th>
       <th>TTL</th>
       <th>Jenis Kelamin</th>
-      {{-- <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Riwayat</th>
-      <th>Waktu Karantina</th> --}}
 			<th>Opsi</th>
     </tr>
   </thead>
@@ -42,10 +84,6 @@ Data Warga
 			<td>{{ $warga->nama }}</td>
       <td>{{ $warga->ttl }}</td>
       <td>{{ $warga->jk }}</td>
-      {{-- <td>{{ $warga->latitude }}</td>
-      <td>{{ $warga->longitude }}</td>
-      <td>{{ $warga->riwayat }}</td>
-      <td>{{ $warga->waktu_karantina }}</td> --}}
 			<td>
 				<a href="/editwarga/{{ $warga->nik }}">Edit</a>
 				|
@@ -62,7 +100,7 @@ Data Warga
 @push('scripts')
     <script>
 
-      function deletewarga(id){
+      function deletewarga(nik){
        
         Swal.fire({
         title: 'Hapus Data ?',

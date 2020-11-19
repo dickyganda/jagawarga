@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Imports\WargaImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 use App\Models\Warga;
 
@@ -52,7 +54,7 @@ public function editwarga($nik)
 }
 
 // update data warga
-public function updatebantuan(Request $request)
+public function updatewarga(Request $request)
 {
 	// update data penyakit
 	DB::table('tb_warga')->where('nik',$request->nik)->update([
@@ -74,5 +76,42 @@ public function deletewarga($nik)
 		
 	return response()->json(array('status'=> 'success', 'reason' => 'Sukses Hapus Data'));
 }
+
+public function getwarga(Request $request)
+{
+	// menghapus data warga berdasarkan id yang dipilih
+	// Warga::where('nik',$request->input('nik'))->first();
+	$getwarga = DB::table('tb_warga as w')->where('nik',$request->input('nik'))
+	->join('tb_lokasi as l', 'l.no_kk','=', 'w.no_kk')
+	->first();
+		
+	return response()->json($getwarga);
+}
+
+public function import_excel(Request $request) 
+	{
+		// validasi
+		$this->validate($request, [
+			'file' => 'required|mimes:csv,xls,xlsx'
+		]);
+ 
+		// menangkap file excel
+		$file = $request->file('file');
+ 
+		// membuat nama file unik
+		$nama_file = rand().$file->getClientOriginalName();
+ 
+		// upload ke folder file_siswa di dalam folder public
+		$file->move('file_siswa',$nama_file);
+ 
+		// import data
+		Excel::import(new SiswaImport, public_path('/views/warga'.$nama_file));
+ 
+		// notifikasi dengan session
+		Session::flash('sukses','Data Siswa Berhasil Diimport!');
+ 
+		// alihkan halaman kembali
+		return redirect('/siswa');
+	}
 
 }

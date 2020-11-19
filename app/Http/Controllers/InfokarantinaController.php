@@ -23,23 +23,22 @@ class InfokarantinaController extends Controller
     }
 
     function viewtambahkarantina(){
+        $datawarga = DB::table('tb_warga as w')->get();
+        $datapenyakit = DB::table('tb_penyakit')->get();
+        $datalokasi = DB::table('tb_lokasi')->get();
+        
 
         // memanggil view tambahpenyakit
-        return view('/karantina/tambahkarantina');
+        return view('/karantina/tambahkarantina', ['datawarga' => $datawarga, 'datapenyakit' => $datapenyakit, 'datalokasi' => $datalokasi]);
     }
 
     function tambahkarantina(Request $request){
+        
         $add = new Karantina;
         $add->nik = $request->input('nik');
-        $add->nama = $request->input('nama');
         $add->id_lokasi = $request->input('id_lokasi');
-        $add->latitude = $request->input('latitude');
-        $add->longitude = $request->input('longitude');
-        $add->id_penyakit = $request->input('id_penyakit');
-        $add->nama_penyakit = $request->input('nama_penyakit');
-        $add->tgl_input = $request->input('tgl_input');
-        $add->waktu_karantina = $request->input('waktu_karantina');
-        $add->status = $request->input('status');
+        $add->id_penyakit = $request->input('nama_penyakit');
+        $add->tgl_input = Date('Y-m-d');
         $add->save();
         
         return response()->json(array('status' => 'success', 'reason' => 'Sukses Tambah Data'));
@@ -66,10 +65,8 @@ public function updatekarantina(Request $request)
 	DB::table('tb_karantina')->where('id_karantina',$request->id_karantina)->update([
 		'nik' => $request->nik,
         'nama' => $request->nama,
-        // 'id_lokasi' => $request->id_lokasi,
-		'latitude' => $request->latitude,
+        'latitude' => $request->latitude,
         'longitude' => $request->longitude,
-        // 'id-penyakit' => $request->id_penyakit,
         'nama_penyakit' => $request->nama_penyakit,
         'tgl_input' => $request->tgl_input,
         'waktu_karantina' => $request->waktu_karantina,

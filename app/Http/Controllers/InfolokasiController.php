@@ -26,6 +26,7 @@ class InfolokasiController extends Controller
 
     function tambahlokasi(Request $request){
         $add = new Lokasi;
+        $add->no_kk = $request->input('no_kk');
         $add->latitude = $request->input('latitude');
         $add->longitude = $request->input('longitude');
         $add->save();
@@ -48,7 +49,7 @@ public function updatelokasi(Request $request)
 {
 	// update data penyakit
 	DB::table('tb_lokasi')->where('id_lokasi',$request->id_lokasi)->update([
-        'nik' => $request->no_kk,
+        'no_kk' => $request->no_kk,
         'latitude' => $request->latitude,
 		'longitude' => $request->longitude,
 	]);

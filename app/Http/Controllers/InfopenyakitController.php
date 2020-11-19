@@ -68,4 +68,13 @@ public function deletepenyakit($id_penyakit)
 	return response()->json(array('status'=> 'success', 'reason' => 'Sukses Hapus Data'));
 }
 
+public function getpenyakit(Request $request)
+{
+	// menghapus data warga berdasarkan id yang dipilih
+    // Warga::where('nik',$request->input('nik'))->first();
+	$getpenyakit = DB::table('tb_penyakit')->where('id_penyakit',$request->input('id_penyakit'))->first();
+		
+	return response()->json($getpenyakit);
+}
+
 }

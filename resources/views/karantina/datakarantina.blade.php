@@ -45,9 +45,7 @@ Data Karantina
       <td>{{ $karantina->nik }}</td>
       <td>{{ $karantina->no_kk }}</td>
       <td>{{ $karantina->nama }}</td>
-      {{-- <td>{{ $karantina->id_penyakit }}</td> --}}
       <td>{{ $karantina->nama_penyakit }}</td>
-      {{-- <td>{{ $karantina->id_lokasi }}</td> --}}
       <td>{{ $karantina->latitude }}</td>
       <td>{{ $karantina->longitude }}</td>
       <td>{{ $karantina->tgl_input }}</td>
@@ -78,8 +76,8 @@ Data Karantina
       </td>
       <td>{{$status}}</td>
 			<td>
-				<a href="/editkarantina/{{ $karantina->id_karantina }}">Edit</a>
-				|
+				{{-- <a href="/editkarantina/{{ $karantina->id_karantina }}">Edit</a>
+				| --}}
         <a href="#"onclick="deletekarantina({{$karantina->id_karantina}})">Hapus</a>
         |
         @if ($status=="selesai"){
@@ -100,7 +98,7 @@ Data Karantina
 
 <script>
 
-    function deletepenyakit(id_karantina){
+    function deletekarantina(id_karantina){
      
       Swal.fire({
       title: 'Are you sure?',

@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <link rel="stylesheet" href="{{ asset('assets/css/leaflet.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/jquery.dataTables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/select2-bootstrap.min.css') }}">
+
 
     <!-- CSS Libraries -->
 
@@ -46,6 +49,7 @@
     <script src="{{ asset('assets/js/jquery.nicescroll.min.js') }}"></script>
     <script src="{{ asset('assets/js/moment.min.js') }}"></script>
     <script src="{{ asset('assets/js/stisla.js') }}"></script>
+    <script src="{{ asset('assets/js/select2.min.js') }}"></script>
 
     <!-- JS Libraies -->
     <script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
@@ -55,6 +59,7 @@
     <script src="{{ asset('assets/js/leaflet-src.esm.js.map') }}"></script>
     <script src="{{ asset('assets/js/leaflet-src.js') }}"></script>
     <script src="{{ asset('assets/js/leaflet-src.js.map') }}"></script>
+
     <!-- Template JS File -->
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>

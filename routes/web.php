@@ -30,6 +30,8 @@ Route::post('tambahwarga','DatawargaController@tambahwarga');
 Route::get('editwarga/{nik}','DatawargaController@editwarga');
 Route::post('updatewarga','DatawargaController@updatewarga');
 Route::get('deletewarga/{nik}','DatawargaController@deletewarga');
+Route::post('getwarga','DatawargaController@getwarga');
+Route::post('import_excel', 'DatawargaController@import_excel');
 
 Route::get('datapenyakit', 'InfopenyakitController@datapenyakit');
 Route::get('tambahpenyakit','InfopenyakitController@viewtambahpenyakit');
@@ -37,6 +39,7 @@ Route::post('tambahpenyakit','InfopenyakitController@tambahpenyakit');
 Route::get('editpenyakit/{id_penyakit}','InfopenyakitController@editpenyakit');
 Route::post('updatepenyakit','InfopenyakitController@updatepenyakit');
 Route::get('deletepenyakit/{id_penyakit}','InfopenyakitController@deletepenyakit');
+Route::post('getpenyakit','InfopenyakitController@getpenyakit');
 
 Route::get('databantuan', 'InfobantuanController@databantuan');
 Route::get('editbantuan/{id_bantuan}','InfobantuanController@editbantuan');
@@ -64,7 +67,6 @@ Route::post('tambahriwayat','InforiwayatController@tambahriwayat');
 Route::get('editriwayat/{id_riwayat}','InforiwayatController@editriwayat');
 Route::post('updateriwayat','InforiwayatController@updateriwayat');
 Route::get('deleteriwayat/{id_riwayat}','InforiwayatController@deleteriwayat');
-// Route::get('tambahwaktukarantina/{id_karantina}','InforiwayatController@tambahwaktukarantina');
 
 Route::get('datapenyaluranbantuan', 'InfopenyaluranbantuanController@datapenyaluranbantuan');
 Route::get('tambahpenyaluranbantuan','InfopenyaluranbantuanController@viewtambahpenyaluranbantuan');
@@ -72,9 +74,6 @@ Route::post('tambahpenyaluranbantuan','InfopenyaluranbantuanController@tambahpen
 Route::get('editpenyaluranbantuan/{id_penyaluran_bantuan}','InfopenyaluranbantuanController@editpenyaluranbantuan');
 Route::post('updatepenyaluranbantuan','InfopenyaluranbantuanController@updatepnyaluranbantuan');
 Route::get('deletepenyaluranbantuan/{id_penyaluran_bantuan}','InfopenyaluranbantuanController@deletepenyaluranbantuan');
-// Route::get('tambahwaktukarantina/{id_karantina}','InfopenyaluranController@tambahwaktukarantina');
-
-// Route::get('keluhan', 'KeluhanController@keluhan');
 
 Auth::routes();
 

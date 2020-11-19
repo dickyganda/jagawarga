@@ -36,8 +36,8 @@ Dashboord
 			<td>{{ $penyakit->id_penyakit }}</td>
 			<td>{{ $penyakit->nama_penyakit }}</td>
 			<td>{{ $penyakit->gejala }}</td>
-            <td>{{ $penyakit->waktu_karantina }}</td>
-            <td>{{ $penyakit->penanganan_pertama }}</td>
+      <td>{{ $penyakit->waktu_karantina }}</td>
+      <td>{{ $penyakit->penanganan_pertama }}</td>
 			<td>
 				<a href="/editpenyakit/{{ $penyakit->id_penyakit }}">Edit</a>
 				|

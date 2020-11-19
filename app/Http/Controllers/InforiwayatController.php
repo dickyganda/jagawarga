@@ -31,54 +31,54 @@ class InforiwayatController extends Controller
     function tambahriwayat(Request $request){
         $add = new Karantina;
         $add->nik = $request->input('nik');
-        $add->nama = $request->input('nama');
+        // $add->nama = $request->input('nama');
         $add->id_lokasi = $request->input('id_lokasi');
-        $add->latitude = $request->input('latitude');
-        $add->longitude = $request->input('longitude');
+        // $add->latitude = $request->input('latitude');
+        // $add->longitude = $request->input('longitude');
         $add->id_penyakit = $request->input('id_penyakit');
-        $add->nama_penyakit = $request->input('nama_penyakit');
-        $add->tgl_input = $request->input('tgl_input');
-        $add->waktu_karantina = $request->input('waktu_karantina');
-        $add->status = $request->input('status');
+        // $add->nama_penyakit = $request->input('nama_penyakit');
+        // $add->tgl_input = $request->input('tgl_input');
+        // $add->waktu_karantina = $request->input('waktu_karantina');
+        // $add->status = $request->input('status');
         $add->save();
         
         return response()->json(array('status' => 'success', 'reason' => 'Sukses Tambah Data'));
     }
 
     // method untuk edit data penyakit
-public function editkarantina($id_karantina)
+public function editriwayat($id_riwayat)
 {
 	// mengambil data penyakit berdasarkan id yang dipilih
-	$karantina = DB::table('tb_karantina')->where('id_karantina',$id_karantina)->get();
+	$riwayat = DB::table('tb_riwayat')->where('id_riwayat',$id_riwayat)->get();
 	// passing data penyakit yang didapat ke view edit.blade.php
-	return view('/karantina/editkarantina',['datakarantina' => $karantina]);
+	return view('/riwayat/editriwayat',['datariwayat' => $riwayat]);
 
 }
 
 // update data penyakit
-public function updatekarantina(Request $request)
+public function updateriwayat(Request $request)
 {
 	// update data penyakit
-	DB::table('tb_karantina')->where('id_karantina',$request->id_karantina)->update([
+	DB::table('tb_riwayat')->where('id_riwayat',$request->id_riwayat)->update([
 		'nik' => $request->nik,
-        'nama' => $request->nama,
+        // 'nama' => $request->nama,
         'id_lokasi' => $request->id_lokasi,
-		'latitude' => $request->latitude,
-        'longitude' => $request->longitude,
+		// 'latitude' => $request->latitude,
+        // 'longitude' => $request->longitude,
         'id-penyakit' => $request->id_penyakit,
-        'nama_penyakit' => $request->nama_penyakit,
-        'tgl_input' => $request->tgl_input,
-        'waktu_karantina' => $request->waktu_karantina,
+        // 'nama_penyakit' => $request->nama_penyakit,
+        // 'tgl_input' => $request->tgl_input,
+        // 'waktu_karantina' => $request->waktu_karantina,
     ]);
 
     return response()->json(array('status'=> 'success', 'reason' => 'Sukses Edit Data'));
     
 }
 
-public function deletekarantina($nik)
+public function deleteriwayat($id_riwayat)
 {
 	// menghapus data penyakit berdasarkan id yang dipilih
-	DB::table('tb_karantina')->where('id_karantina',$id_karantina)->delete();
+	DB::table('tb_riwayat')->where('id_riwayat',$id_riwayat)->delete();
 		
 	return response()->json(array('status'=> 'success', 'reason' => 'Sukses Hapus Data'));
 }
