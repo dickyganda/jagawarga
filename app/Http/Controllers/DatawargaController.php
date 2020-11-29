@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Imports\WargaImport;
 use Maatwebsite\Excel\Facades\Excel;
+use Session;
 
 use App\Models\Warga;
 
@@ -105,13 +106,13 @@ public function import_excel(Request $request)
 		$file->move('file_siswa',$nama_file);
  
 		// import data
-		Excel::import(new SiswaImport, public_path('/views/warga'.$nama_file));
+		Excel::import(new WargaImport, public_path('/file_siswa/'.$nama_file));
  
 		// notifikasi dengan session
 		Session::flash('sukses','Data Siswa Berhasil Diimport!');
  
 		// alihkan halaman kembali
-		return redirect('/siswa');
+		return redirect('/datawarga');
 	}
 
 }

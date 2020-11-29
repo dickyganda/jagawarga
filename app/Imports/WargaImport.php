@@ -2,7 +2,7 @@
 
 namespace App\Imports;
 
-use App\Warga;
+use App\Models\Warga;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class WargaImport implements ToModel
@@ -15,10 +15,11 @@ class WargaImport implements ToModel
     public function model(array $row)
     {
         return new Warga([
-            'nik' => $row[1],
-            'no_kk' => $row[2], 
-            'jk' => $row[3],
-            'ttl' => $row[4],
+            'nik' => $row[0],
+            'no_kk' => $row[1],
+            'nama' => $row[2], 
+            'ttl' => $row[3],
+            'jk' => $row[4],
             //
         ]);
     }

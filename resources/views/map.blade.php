@@ -46,9 +46,47 @@ Map
     accessToken: 'pk.eyJ1IjoiZGlja3lnYW5kYSIsImEiOiJja2hic3F0YzgwMGNiMnRtcGo3ejkwMHM4In0._C7h0v7qstA2nVgz6DPi9g'
 }).addTo(mymap);
 
-L.marker([-7.099127, 112.283545], {icon: greenIcon}).addTo(mymap)
-    .bindPopup('IKI OMAHKU :D')
-    .openPopup();
+@php
+  $i = 1;
+  $latitude = 0;
+  $longitude = 0;
+  $text = '';
+  $text_temp = '';
+@endphp
+@foreach($datariwayat as $riwayat)
+
+    @php
+      if($latitude != $riwayat->latitude && $longitude != $riwayat->longitude){
+        if($latitude == 0 && $longitude == 0){
+
+          $latitude = $riwayat->latitude;
+          $longitude = $riwayat->longitude;
+        }
+        else{
+          echo ".bindPopup('" . $text . "').openPopup();";
+          $text = '';
+          $i = 1;
+        }
+        echo "L.marker([" . $riwayat->latitude . ", " . $riwayat->longitude . "], {icon: greenIcon}).addTo(mymap)";
+          // $text = $i++ . ". " . $riwayat->nama . ", " . $riwayat->nama_penyakit;
+          $text = $i++ . ". " . $riwayat->value;
+      }
+      else{
+        // if($text_temp != $riwayat->nama . $riwayat->nama_penyakit){
+        //   $text = $text . "<br>" . $i++ . ". " . $riwayat->nama . ", " . $riwayat->nama_penyakit;
+        // }
+
+        if($text_temp != $riwayat->value){
+          $text = $text . "<br>" . $i++ . ". " . $riwayat->value;
+        }
+
+      }
+      $text_temp = $riwayat->value;
+    @endphp
+
+@endforeach
+
+.bindPopup('{{$text}}').openPopup();
     
 </script>    
 @endpush

@@ -23,9 +23,14 @@ class InfopenyaluranbantuanController extends Controller
     }
 
     function viewtambahpenyaluranbantuan(){
+        $getnik = DB::table('tb_warga as w')
+        ->get();
+
+        $getbantuan = DB::table('tb_bantuan as b')
+        ->get();
 
         // memanggil view tambahpenyakit
-        return view('/penyaluranbantuan/tambahpenyaluranbantuan');
+        return view('/penyaluranbantuan/tambahpenyaluranbantuan',['getnik' => $getnik, 'getbantuan' => $getbantuan]);
     }
 
     function tambahpenyaluranbantuan(Request $request){

@@ -4,7 +4,8 @@ Data Warga
 @endsection
 
 @push('styles')
-    
+    <style>
+    </style>
 @endpush
 
 @section('content')
@@ -20,11 +21,12 @@ Data Warga
 
   {{-- notifikasi sukses --}}
   @if ($sukses = Session::get('sukses'))
-  <div class="alert alert-success alert-block">
-    <button type="button" class="close" data-dismiss="alert">×</button> 
-    <strong>{{ $sukses }}</strong>
+  <div class="alert alert-success alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> Indicates a successful or positive action.
   </div>
   @endif
+
 </div>
 
 <div class="section-body">
@@ -34,33 +36,6 @@ Data Warga
   <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
     IMPORT EXCEL
   </button>
-
-  <!-- Import Excel -->
-  <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <form method="post" action="import_excel" enctype="multipart/form-data">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
-          </div>
-          <div class="modal-body">
-
-            {{ csrf_field() }}
-
-            <label>Pilih file excel</label>
-            <div class="form-group">
-              <input type="file" name="file" required="required">
-            </div>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Import</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
 	
 	<br/>
 	<br/>
@@ -94,7 +69,34 @@ Data Warga
   </tbody>
   </table>
 </div>
-</div>    
+
+ <!-- Import Excel -->
+ <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form method="post" action="import_excel" enctype="multipart/form-data">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
+        </div>
+        <div class="modal-body">
+
+          {{ csrf_field() }}
+
+          <label>Pilih file excel</label>
+          <div class="form-group">
+            <input type="file" name="file" required="required">
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Import</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
 @endsection
 
 @push('scripts')
@@ -138,5 +140,7 @@ Data Warga
                 "order": []
             });
         });
+
+        $('.modal').insertAfter($('body'));
     </script>
 @endpush

@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Karantina;
+use App\Models\Riwayat;
+use App\Models\Warga;
+use App\Models\Penyakit;
+use App\Models\Lokasi;
 
 class InfokarantinaController extends Controller
 {
@@ -78,6 +82,21 @@ public function updatekarantina(Request $request)
 
 public function deletekarantina($id_karantina)
 {
+
+    $datakarantina = Karantina::find($id_karantina);
+    $datawarga = Warga::find($datakarantina->nik);
+    $datapenyakit = Penyakit::find($datakarantina->id_penyakit);
+    $datalokasi = Lokasi::find($datakarantina->id_lokasi);
+
+    $add = new Riwayat;
+    $add->nik = $datawarga->nik;
+    // $add->nama = $datawarga->nama;
+    $add->id_penyakit = $datapenyakit->id_penyakit;
+    $add->id_lokasi = $datalokasi->id_lokasi;
+    // $add->latitude = $datalokasi->latitude;
+    // $add->longitude = $datalokasi->longitude;
+    // $add->tgl_input = Date('Y-m-d');
+    $add->save();
 	// menghapus data penyakit berdasarkan id yang dipilih
 	DB::table('tb_karantina')->where('id_karantina',$id_karantina)->delete();
 		
