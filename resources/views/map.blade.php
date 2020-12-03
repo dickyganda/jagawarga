@@ -24,6 +24,23 @@ Map
 
 @push('scripts')
 <script>
+function onLocationFound(e) {
+    var radius = e.accuracy;
+
+    L.marker(e.latlng).addTo(mymap)
+        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+    L.circle(e.latlng, radius).addTo(map);
+}
+
+map.on('locationfound', onLocationFound);
+
+function onLocationError(e) {
+    alert(e.message);
+}
+
+map.on('locationerror', onLocationError);
+
   var mymap = L.map('mapid').setView([-7.096270, 112.285988], 13);
 
   var greenIcon = L.icon({
