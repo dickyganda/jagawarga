@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2020 at 09:33 AM
+-- Generation Time: Dec 10, 2020 at 02:55 PM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
@@ -109,6 +109,21 @@ CREATE TABLE `tb_lokasi` (
   `longitude` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tb_lokasi`
+--
+
+INSERT INTO `tb_lokasi` (`id_lokasi`, `no_kk`, `latitude`, `longitude`) VALUES
+(2, 1402025108850002, '-7.098982', '112.283653'),
+(3, 3321116502910000, '-7.098139', '112.283865'),
+(4, 3203070504890020, '-7.098036', '112.283845'),
+(5, 3305042302490002, '-7.098351', '112.283437'),
+(6, 3321050312850000, '-7.098470', '112.283585'),
+(7, 3321112107550000, '-7.098023', '112.283764'),
+(8, 3321112302640000, '-7.097940', '112.283784'),
+(9, 1402024104450001, '-7.098236', '112.283824'),
+(10, 1402022702930001, '-7.098445', '112.284185');
+
 -- --------------------------------------------------------
 
 --
@@ -130,8 +145,11 @@ CREATE TABLE `tb_penyakit` (
 INSERT INTO `tb_penyakit` (`id_penyakit`, `nama_penyakit`, `gejala`, `waktu_karantina`, `penanganan_pertama`) VALUES
 (2, 'TB PARU', '1.	Batuk berdahak lebih dari 2 minggu\r\n2.	Demam terus-menerus\r\n3.	Lemas\r\n4.	Nafsu makan menurun\r\n5.	Berkeringat dingin saat malam hari tampa aktivitas\r\n6.	Batuk darah', 180, 'Hasil pemeriksaan positif dilakukan Pengobatan TB selama 6 bulan menggunakan obat OAT (Obat anti TB)'),
 (3, 'HIV', '1.	Sakit kepala\r\n2.	Demam\r\n3.	Lesu\r\n4.	Pembekakakan kelenjar getah bening\r\n5.	Sakit tenggorokan\r\n6.	Sariawan terus menerus\r\n7.	Munculnya ruam\r\n8.	Nyeri otot dan sendi', 100, 'Pengobatan HIV dilakukan seumur hidup menggunakan ARV (antiretroviral)'),
-(4, 'DIARE', '1.	Perut mulas\r\n2.	Tinja encer (BAB cair) atau bahkan berdarah\r\n3.	Mual dan muntah\r\n4.	Pusing\r\n5.	Lemas \r\n6.	Nafsu makan turun\r\n7.	Kulit kering\r\n8.	Merasa haus terus menerus', 100, 'Mengkonsusmsi banyak cairan untuk menggantikan kehilangan cairan, baik melalui oral (bias menggunakan oralit) ataupun intravena (cairan infus)\r\nPemberian obat untuk melawan bakteri'),
-(5, 'ISPA', '1.	Hidung tersumbat atau berair\r\n2.	Bersin-bersin\r\n3.	Sesak pada bagian dada\r\n4.	Kerap merasa kelelahan\r\n5.	Demam\r\n6.	Batuk-batuk\r\n7.	Sakit tenggorokan\r\n8.	Nyeri otot', 100, 'Penanganan ispa sesuai dengan keluhan biasanya di berikan obat untuk mengurangi batuk, vitamin C dan juga pereda nyeri');
+(4, 'DIARE', '1.	Perut mulas2.	Tinja encer (BAB cair) atau bahkan berdarah3.	Mual dan muntah4.	Pusing5.	Lemas 6.	Nafsu makan turun7.	Kulit kering8.	Merasa haus terus menerus', 14, 'Mengkonsusmsi banyak cairan untuk menggantikan kehilangan cairan, baik melalui oral (bias menggunakan oralit) ataupun intravena (cairan infus)Pemberian obat untuk melawan bakteri'),
+(5, 'ISPA', '1.	Hidung tersumbat atau berair2.	Bersin-bersin3.	Sesak pada bagian dada4.	Kerap merasa kelelahan5.	Demam6.	Batuk-batuk7.	Sakit tenggorokan8.	Nyeri otot', 10, 'Penanganan ispa sesuai dengan keluhan biasanya di berikan obat untuk mengurangi batuk, vitamin C dan juga pereda nyeri'),
+(6, 'KUSTA', '1.	Bercak-bercak berwarna terang atau kemerahan di kulit disertai dengan kurangnya kemampuan merasa, mati rasa, (suhu,tekanan dan sentuhan) \r\n2.	Muncul luka tapi tidak terasa sakit\r\n3.	Otot melemah terutama otot kaki dan tangan\r\n4.	Prmbrsaran saraf teruta', 545, 'Hasil pemeriksaan positif kusta dilakukan pengobatan MDT(Multi Drug Therapy) selama 1 tahun 6 bulan, setelah itu melakukan pengobatan sesuai keluhan pasien'),
+(7, 'DBD', '1.	Demam mendadak tinggi2.	Nafsu makan menurun3.	Mual dan muntah4.	Badan terasa lelah,lesuh dan letih terus menerus5.	Nyeri di persendian,otot,tulang6.	Tenggorokan sakit7.	Kepala pusing8.	Muncul bintik-bintik merah9.	Perdarahan dari hidung', 10, 'Pengobatan DBD sesuai dengan keluhan1.	Banyak minum air putih,susu putih,air kelapa,jus jambu2.	Istirahat cukup3.	Konsusmsi obat penurun panas dari dokter dan di kompres4.	Pemberian vitamin5.	Dan melakukan PSN 3M plus'),
+(8, 'Covid 19', '1. Demam tinggi disertai menggigil\r\n2. Batuk kering\r\n3. Pilek\r\n4. Hidung berair dan bersin-bersin\r\n5. Nyeri tenggorokan\r\n6. Sesak napas', 14, 'Penderita yang terinfeksi virus corona akan menerima terapi yang bersifat suportif untuk mengurangi gejala. Misalnya anti-piretik untuk menurunkan suhu tubuh dan cairan untuk mencegah dehidrasi, serta terapi oksigen pada pasien yang mengalami sesak napas\r');
 
 -- --------------------------------------------------------
 
@@ -151,7 +169,8 @@ CREATE TABLE `tb_riwayat` (
 --
 
 INSERT INTO `tb_riwayat` (`id_riwayat`, `nik`, `id_lokasi`, `id_penyakit`) VALUES
-(1, 12345, 1, 1);
+(1, 12345, 1, 1),
+(2, 3305041812130006, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -468,25 +487,25 @@ ALTER TABLE `tb_bantuan`
 -- AUTO_INCREMENT for table `tb_karantina`
 --
 ALTER TABLE `tb_karantina`
-  MODIFY `id_karantina` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_karantina` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_lokasi`
 --
 ALTER TABLE `tb_lokasi`
-  MODIFY `id_lokasi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_lokasi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tb_penyakit`
 --
 ALTER TABLE `tb_penyakit`
-  MODIFY `id_penyakit` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_penyakit` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_riwayat`
 --
 ALTER TABLE `tb_riwayat`
-  MODIFY `id_riwayat` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_riwayat` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_transaksi`

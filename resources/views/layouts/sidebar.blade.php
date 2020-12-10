@@ -12,6 +12,7 @@
                 <a href="#" class="nav-link has-dropdown"><i
                         class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
                 <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="/dashboard">General Dashboard</a></li>
                     <li><a class="nav-link" href="/map">Map Dashboard</a></li>
                     <li><a class="nav-link" href="/datawarga">Data Warga</a></li>
                     <li><a class="nav-link" href="/datapenyakit">Data Penyakit</a></li>

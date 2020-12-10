@@ -60,6 +60,7 @@
     <script src="{{ asset('assets/js/leaflet-src.esm.js.map') }}"></script>
     <script src="{{ asset('assets/js/leaflet-src.js') }}"></script>
     <script src="{{ asset('assets/js/leaflet-src.js.map') }}"></script>
+    <script src="{{ asset('assets/js/chart.js') }}"></script>
 
     <!-- Template JS File -->
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
