@@ -74,6 +74,7 @@ Route::post('tambahpenyaluranbantuan','InfopenyaluranbantuanController@tambahpen
 Route::get('editpenyaluranbantuan/{id_penyaluran_bantuan}','InfopenyaluranbantuanController@editpenyaluranbantuan');
 Route::post('updatepenyaluranbantuan','InfopenyaluranbantuanController@updatepnyaluranbantuan');
 Route::get('deletepenyaluranbantuan/{id_penyaluran_bantuan}','InfopenyaluranbantuanController@deletepenyaluranbantuan');
+Route::get('salurkanbantuan/{id_penyaluran_bantuan}','InfopenyaluranbantuanController@salurkanbantuan');
 
 Auth::routes();
 

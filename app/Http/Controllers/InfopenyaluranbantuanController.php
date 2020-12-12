@@ -28,7 +28,6 @@ class InfopenyaluranbantuanController extends Controller
 
         $getbantuan = DB::table('tb_bantuan as b')
         ->get();
-
         // memanggil view tambahpenyakit
         return view('/penyaluranbantuan/tambahpenyaluranbantuan',['getnik' => $getnik, 'getbantuan' => $getbantuan]);
     }
@@ -36,15 +35,8 @@ class InfopenyaluranbantuanController extends Controller
     function tambahpenyaluranbantuan(Request $request){
         $add = new Penyaluranbantuan;
         $add->nik = $request->input('nik');
-        $add->nama = $request->input('nama');
-        $add->id_lokasi = $request->input('id_lokasi');
-        $add->latitude = $request->input('latitude');
-        $add->longitude = $request->input('longitude');
-        $add->id_penyakit = $request->input('id_penyakit');
-        $add->nama_penyakit = $request->input('nama_penyakit');
-        $add->tgl_input = $request->input('tgl_input');
-        $add->waktu_karantina = $request->input('waktu_karantina');
-        $add->status = $request->input('status');
+        $add->id_bantuan = $request->input('id_bantuan');
+        $add->jumlah = $request->input('jumlah');
         $add->save();
         
         return response()->json(array('status' => 'success', 'reason' => 'Sukses Tambah Data'));
@@ -88,15 +80,30 @@ public function deletepenyaluranbantuan($id_penyaluran_bantuan)
 	return response()->json(array('status'=> 'success', 'reason' => 'Sukses Hapus Data'));
 }
 
-// public function tambahwaktukarantina($id_karantina)
-// {
+public function salurkanbantuan($id_penyaluran_bantuan)
+{
+    $penyaluranbantuan = DB::table('tb_penyaluran_bantuan')
+    ->where('id_penyaluran_bantuan',$id_penyaluran_bantuan)->first();
 
-//     $jumlah_hari = Karantina::find($id_karantina);
-//     $jumlah_hari->tgl_input = date("Y-m-d");
-//     $jumlah_hari->save();
+    $bantuan = DB::table('tb_bantuan')
+    ->where('id_bantuan',$penyaluranbantuan->id_bantuan)->first();
 
-//     return response()->json(array('status'=> 'success', 'reason' => 'Sukses Edit Data'));
+    if($penyaluranbantuan->jumlah > $bantuan->stok){
+        return response()->json(array('status'=> 'error', 'reason' => 'Stok bantuan tidak cukup'));
+    }
+
+	// update bantuan
+	DB::table('tb_bantuan')->where('id_bantuan',$penyaluranbantuan->id_penyaluran_bantuan)->update([
+		'stok' =>( $bantuan->stok -  $penyaluranbantuan->jumlah),
+    ]);
+
+	// update penyaluranb bantuan
+	DB::table('tb_penyaluran_bantuan')->where('id_penyaluran_bantuan',$id_penyaluran_bantuan)->update([
+		'status' => 'sudah',
+    ]);
+
+    return response()->json(array('status'=> 'success', 'reason' => 'Sukses Edit Data'));
     
-// }
+}
 
 }

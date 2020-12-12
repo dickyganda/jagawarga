@@ -35,10 +35,6 @@ function tambahwarga(Request $request){
 	$add->nama = $request->input('nama');
 	$add->ttl = $request->input('ttl');
 	$add->jk = $request->input('jk');
-	// $add->latitude = $request->input('latitude');
-	// $add->longitude = $request->input('longitude');
-	// $add->riwayat = $request->input('riwayat');
-	// $add->waktu_karantina = $request->input('waktu_karantina');
 	$add->save();
 	
 	return response()->json(array('status' => 'success', 'reason' => 'Sukses Tambah Data'));

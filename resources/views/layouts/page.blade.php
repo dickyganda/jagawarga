@@ -30,7 +30,13 @@
     <div id="app">
         <div class="main-wrapper">
             @include('layouts/header')
+            @if (Auth::user()->role=='operator')
+            @include('layouts/sidebaropr')
+                
+            @else
             @include('layouts/sidebar')
+                
+            @endif
 
             <!-- Main Content -->
             <div class="main-content">
