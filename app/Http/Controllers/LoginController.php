@@ -16,7 +16,7 @@ function Login(Request $request){
         ->where('nama','=',$request->input('nama'))
         ->first();
         if($warga){
-            $status = 'success';
+            $status = $warga;
         }else{
             $status= 'failed';
 

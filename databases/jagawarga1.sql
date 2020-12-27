@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2020 at 02:55 PM
+-- Generation Time: Dec 27, 2020 at 02:44 PM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
@@ -82,6 +82,13 @@ CREATE TABLE `tb_bantuan` (
   `satuan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tb_bantuan`
+--
+
+INSERT INTO `tb_bantuan` (`id_bantuan`, `jenis_bantuan`, `stok`, `satuan`) VALUES
+(1, 'makanan', 0, 'pcs');
+
 -- --------------------------------------------------------
 
 --
@@ -95,6 +102,17 @@ CREATE TABLE `tb_karantina` (
   `id_penyakit` int(100) NOT NULL,
   `tgl_input` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_karantina`
+--
+
+INSERT INTO `tb_karantina` (`id_karantina`, `nik`, `id_lokasi`, `id_penyakit`, `tgl_input`) VALUES
+(3, 1402022007100003, 2, 4, '2020-12-01'),
+(4, 3305041812130006, 2, 7, '2020-12-01'),
+(5, 3321110902070002, 3, 2, '2020-01-12'),
+(6, 3321060902150009, 3, 3, '2020-01-01'),
+(7, 3305040901072053, 4, 4, '2020-05-12');
 
 -- --------------------------------------------------------
 
@@ -150,6 +168,27 @@ INSERT INTO `tb_penyakit` (`id_penyakit`, `nama_penyakit`, `gejala`, `waktu_kara
 (6, 'KUSTA', '1.	Bercak-bercak berwarna terang atau kemerahan di kulit disertai dengan kurangnya kemampuan merasa, mati rasa, (suhu,tekanan dan sentuhan) \r\n2.	Muncul luka tapi tidak terasa sakit\r\n3.	Otot melemah terutama otot kaki dan tangan\r\n4.	Prmbrsaran saraf teruta', 545, 'Hasil pemeriksaan positif kusta dilakukan pengobatan MDT(Multi Drug Therapy) selama 1 tahun 6 bulan, setelah itu melakukan pengobatan sesuai keluhan pasien'),
 (7, 'DBD', '1.	Demam mendadak tinggi2.	Nafsu makan menurun3.	Mual dan muntah4.	Badan terasa lelah,lesuh dan letih terus menerus5.	Nyeri di persendian,otot,tulang6.	Tenggorokan sakit7.	Kepala pusing8.	Muncul bintik-bintik merah9.	Perdarahan dari hidung', 10, 'Pengobatan DBD sesuai dengan keluhan1.	Banyak minum air putih,susu putih,air kelapa,jus jambu2.	Istirahat cukup3.	Konsusmsi obat penurun panas dari dokter dan di kompres4.	Pemberian vitamin5.	Dan melakukan PSN 3M plus'),
 (8, 'Covid 19', '1. Demam tinggi disertai menggigil\r\n2. Batuk kering\r\n3. Pilek\r\n4. Hidung berair dan bersin-bersin\r\n5. Nyeri tenggorokan\r\n6. Sesak napas', 14, 'Penderita yang terinfeksi virus corona akan menerima terapi yang bersifat suportif untuk mengurangi gejala. Misalnya anti-piretik untuk menurunkan suhu tubuh dan cairan untuk mencegah dehidrasi, serta terapi oksigen pada pasien yang mengalami sesak napas\r');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_penyaluran_bantuan`
+--
+
+CREATE TABLE `tb_penyaluran_bantuan` (
+  `id_penyaluran_bantuan` int(11) NOT NULL,
+  `nik` bigint(20) NOT NULL,
+  `id_bantuan` varchar(255) NOT NULL,
+  `jumlah` varchar(11) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'belum'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_penyaluran_bantuan`
+--
+
+INSERT INTO `tb_penyaluran_bantuan` (`id_penyaluran_bantuan`, `nik`, `id_bantuan`, `jumlah`, `status`) VALUES
+(1, 1402010607088479, '1', '2', 'belum');
 
 -- --------------------------------------------------------
 
@@ -379,6 +418,7 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'operator',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -387,8 +427,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@jagawarga.com', NULL, '$2y$10$a/i0BUm7pGVHqhwyC8um.eiuTvHhotqwkkyi/JaMy5L7pkJl2cZH.', NULL, '2020-12-01 18:20:41', '2020-12-01 18:20:41');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `role`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', 'admin@jagawarga.com', NULL, '$2y$10$a/i0BUm7pGVHqhwyC8um.eiuTvHhotqwkkyi/JaMy5L7pkJl2cZH.', NULL, 'admin', '2020-12-01 18:20:41', '2020-12-01 18:20:41'),
+(2, 'Operator', 'operator@jagawarga.com', NULL, '$2y$10$deuqtHZJ/.Mb4exNN/Im/ulJz2IbmhSnpsAAj4XxBl7J1ZQjANmny', NULL, 'operator', '2020-12-11 23:06:23', '2020-12-11 23:06:23');
 
 --
 -- Indexes for dumped tables
@@ -437,6 +478,12 @@ ALTER TABLE `tb_penyakit`
   ADD PRIMARY KEY (`id_penyakit`);
 
 --
+-- Indexes for table `tb_penyaluran_bantuan`
+--
+ALTER TABLE `tb_penyaluran_bantuan`
+  ADD PRIMARY KEY (`id_penyaluran_bantuan`);
+
+--
 -- Indexes for table `tb_riwayat`
 --
 ALTER TABLE `tb_riwayat`
@@ -481,13 +528,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `tb_bantuan`
 --
 ALTER TABLE `tb_bantuan`
-  MODIFY `id_bantuan` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_bantuan` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_karantina`
 --
 ALTER TABLE `tb_karantina`
-  MODIFY `id_karantina` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_karantina` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_lokasi`
@@ -500,6 +547,12 @@ ALTER TABLE `tb_lokasi`
 --
 ALTER TABLE `tb_penyakit`
   MODIFY `id_penyakit` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `tb_penyaluran_bantuan`
+--
+ALTER TABLE `tb_penyaluran_bantuan`
+  MODIFY `id_penyaluran_bantuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_riwayat`
@@ -517,7 +570,7 @@ ALTER TABLE `tb_transaksi`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

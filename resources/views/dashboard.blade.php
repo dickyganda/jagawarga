@@ -23,18 +23,20 @@ Dashboord
         </div>
         <div class="card bg-warning">
             <div class="card-body text-center">
-                <p class="card-text">Some text inside the second card</p>
+                <p class="card-text">Jenis Penyakit Menular</p>
+                <h4>7</h4>
             </div>
         </div>
         <div class="card bg-success">
             <div class="card-body text-center">
-                <p class="card-text">Some text inside the third card</p>
+                <p class="card-text">Jumlah Kasus</p>
+                <h4>5</h4>
             </div>
         </div>
-        <div class="card bg-danger">
+        {{-- <div class="card bg-danger">
             <div class="card-body text-center">
                 <p class="card-text">Some text inside the fourth card</p>
-            </div>
+            </div> --}}
         </div>
     </div>
 

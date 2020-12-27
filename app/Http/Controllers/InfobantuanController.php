@@ -15,7 +15,17 @@ class InfobantuanController extends Controller
  
     	// mengirim data penyakit ke view datapenyakit
     	return view('/bantuan/databantuan',['databantuan' => $databantuan]);
-    }
+	}
+	
+	function tambahbantuan(Request $request){
+		$add = new Warga;
+		$add->jenis_bantuan = $request->input('jenis_bantuan');
+		$add->jumlah = $request->input('jumlah');
+		$add->satuan = $request->input('satuan');
+		$add->save();
+		
+		return response()->json(array('status' => 'success', 'reason' => 'Sukses Tambah Data'));
+	}
 
     public function editbantuan($id_bantuan)
 {
