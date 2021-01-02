@@ -24,13 +24,13 @@ Dashboord
         <div class="card bg-warning">
             <div class="card-body text-center">
                 <p class="card-text">Jenis Penyakit Menular</p>
-                <h4>7</h4>
+                <h4>{{$jumlah_penyakit}}</h4>
             </div>
         </div>
         <div class="card bg-success">
             <div class="card-body text-center">
                 <p class="card-text">Jumlah Kasus</p>
-                <h4>5</h4>
+                <h4>{{$jumlah_kasus_aktif}}</h4>
             </div>
         </div>
         {{-- <div class="card bg-danger">
@@ -53,7 +53,7 @@ Dashboord
 <script>
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
             datasets: [{

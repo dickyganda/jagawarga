@@ -29,6 +29,7 @@ Data Penyaluran Bantuan
                 <th>Jenis Bantuan</th>
                 <th>Qty</th>
                 <th>Status</th>
+                <th>Waktu Peenyaluran Bantuan</th>
                 {{-- <th>Latitude</th>
             <th>Longiitude</th> --}}
                 {{-- <th>Tanggal Input</th> --}}
@@ -48,6 +49,7 @@ Data Penyaluran Bantuan
                 <td>{{ $penyaluranbantuan->jenis_bantuan }}</td>
                 <td>{{ $penyaluranbantuan->jumlah }}</td>
                 <td>{{ $penyaluranbantuan->status }}</td>
+                <td>{{ date_format(date_create($penyaluranbantuan->tgl_penyaluran_bantuan),"d-m-Y") }}</td>
 
                 <td>
                     {{-- <a href="/editpenyaluranbantuan/{{ $penyaluranbantuan->id_penyaluran_bantuan }}">Edit</a> --}}

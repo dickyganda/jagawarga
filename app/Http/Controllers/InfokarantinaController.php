@@ -13,7 +13,38 @@ use App\Models\Lokasi;
 
 class InfokarantinaController extends Controller
 {
-    //
+
+    function Getdatakarantina(){
+        // mengambil data dari table tb_penyakit
+        $datakarantina = DB::table('tb_karantina as k')
+            ->join('tb_warga as w', 'w.nik', '=', 'k.nik')
+            ->join('tb_penyakit as p', 'p.id_penyakit', '=', 'k.id_penyakit')
+            ->join('tb_lokasi as l', 'l.id_lokasi', '=', 'k.id_lokasi')
+            ->get();
+        $response = array();
+        foreach($datakarantina as $datakarantina){
+            $diff = date("Y-m-d", strtotime('+' . $datakarantina->waktu_karantina . "days", strtotime($datakarantina->tgl_input)));
+            $diff = date_diff(date_create($diff), date_create(date("Y-m-d")));
+
+            if($diff->format("%R") == '+'){ 
+                $status = 'Selesai'; 
+            }elseif($diff->format("%a") == '0'){ 
+                $status = 'Selesai'; 
+            }else{
+                $status = $datakarantina->waktu_karantina." Hari";
+            }
+
+            $row['id_karantina'] = $datakarantina->id_karantina;
+            $row['nama'] = $datakarantina->nama;
+            $row['nama_penyakit'] = $datakarantina->nama_penyakit;
+            $row['waktu_karantina'] = $status;
+
+            $response[] = $row;
+        }
+
+    	return response()->json($response);
+    }
+
     function Datakarantina(){
         // mengambil data dari table tb_penyakit
         $datakarantina = DB::table('tb_karantina as k')
@@ -21,7 +52,7 @@ class InfokarantinaController extends Controller
             ->join('tb_penyakit as p', 'p.id_penyakit', '=', 'k.id_penyakit')
             ->join('tb_lokasi as l', 'l.id_lokasi', '=', 'k.id_lokasi')
             ->get();
-// dd($datakarantina);
+
     	// mengirim data penyakit ke view datapenyakit
     	return view('/karantina/datakarantina',['datakarantina' => $datakarantina]);
     }

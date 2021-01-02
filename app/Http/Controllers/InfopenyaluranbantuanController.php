@@ -99,7 +99,8 @@ public function salurkanbantuan($id_penyaluran_bantuan)
 
 	// update penyaluranb bantuan
 	DB::table('tb_penyaluran_bantuan')->where('id_penyaluran_bantuan',$id_penyaluran_bantuan)->update([
-		'status' => 'sudah',
+        'status' => 'sudah',
+        'tgl_penyaluran_bantuan' => date('Y-m-d')
     ]);
 
     return response()->json(array('status'=> 'success', 'reason' => 'Sukses Edit Data'));

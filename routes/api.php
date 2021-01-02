@@ -20,5 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('login','LoginController@login');
 
-Route::get('tambahbantuan','DatabantuanController@viewtambahbantuan');
-Route::post('tambahbantuan','DatabantuanController@tambahwarga');
+Route::post('tambahbantuan','InfobantuanController@tambahbantuan');
+
+Route::get('datakarantina', 'InfokarantinaController@Getdatakarantina');
+
+Route::get('/map', 'MapController@Getdatamap');

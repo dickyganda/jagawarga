@@ -31,7 +31,8 @@ Data Warga
 
 <div class="section-body">
   <div class="card w-100">
-  <a href="/tambahwarga"> + Tambah Data Baru</a>
+  {{-- <a href="/tambahwarga"> + Tambah Data Baru</a> --}}
+  <a href="/tambahwarga" class="btn btn-success" role="button">Tambah Data Baru</a>
 
   <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
     IMPORT EXCEL
@@ -60,9 +61,9 @@ Data Warga
       <td>{{ $warga->ttl }}</td>
       <td>{{ $warga->jk }}</td>
 			<td>
-				<a href="/editwarga/{{ $warga->nik }}">Edit</a>
-				|
-				<a href="#"onclick="deletewarga({{$warga->nik}})">Hapus</a>
+				<a href="/editwarga/{{ $warga->nik }}" class="btn btn-warning" role="button">Edit</a>
+				
+				<a href="#"onclick="deletewarga({{$warga->nik}})" class="btn btn-danger" role="button">Hapus</a>
 			</td>
 		</tr>
     @endforeach

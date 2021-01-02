@@ -23,8 +23,8 @@ Edit Data Bantuan
     <form id="editbantuan" method="post">
          <input type="hidden" name="id_bantuan" value="{{ $bantuan->id_bantuan }}" hidden>
         Jenis Bantuan <input type="text" name="jenis_bantuan" value="{{ $bantuan->jenis_bantuan }}"> <br />
-        Stok <input type="text" name="jenis_bantuan" value="{{ $bantuan->stok }}"> <br />
-        Satuan <input type="text" name="jenis_bantuan" value="{{ $bantuan->satuan }}"> <br />
+        Stok <input type="text" name="stok" value="{{ $bantuan->stok }}"> <br />
+        Satuan <input type="text" name="satuan" value="{{ $bantuan->satuan }}"> <br />
         <input type="submit" value="Simpan">
     </form>
     @endforeach

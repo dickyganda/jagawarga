@@ -39,7 +39,7 @@ class LoginController extends Controller
     }
 
     protected function authenticated(){
-        return redirect('/datawarga');
+        return redirect('/dashboard');
     }
 
     protected function loggedOut(){

@@ -18,11 +18,26 @@ class InfobantuanController extends Controller
 	}
 	
 	function tambahbantuan(Request $request){
-		$add = new Warga;
-		$add->jenis_bantuan = $request->input('jenis_bantuan');
-		$add->jumlah = $request->input('jumlah');
-		$add->satuan = $request->input('satuan');
-		$add->save();
+
+		//cari existing bantuan
+		$result = Bantuan::where("jenis_bantuan", "=", strtoupper($request->input('jenis_bantuan')))->first();
+		
+		//jika ada, tambah stok
+		if(!empty($result)){
+
+			DB::table('tb_bantuan')->where('id_bantuan',$result->id_bantuan)->update([
+				'stok' => $result->stok+$request->stok,
+				'satuan' => $request->satuan,
+			]);
+		
+		}
+		else{
+			$add = new Bantuan;
+			$add->jenis_bantuan = strtoupper($request->input('jenis_bantuan'));
+			$add->stok = $request->input('stok');
+			$add->satuan = $request->input('satuan');
+			$add->save();
+		}
 		
 		return response()->json(array('status' => 'success', 'reason' => 'Sukses Tambah Data'));
 	}
@@ -40,7 +55,7 @@ public function updatebantuan(Request $request)
 {
 	// update data penyakit
 	DB::table('tb_bantuan')->where('id_bantuan',$request->id_bantuan)->update([
-		'jenis_bantuan' => $request->bantuan,
+		'jenis_bantuan' => $request->jenis_bantuan,
 		'stok' => $request->stok,
 		'satuan' => $request->satuan,
 	]);

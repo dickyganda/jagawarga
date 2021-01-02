@@ -20,6 +20,10 @@
                     <li><a class="nav-link" href="/datalokasi">Data Lokasi</a></li>
                 </ul>
             </li> --}}
+            <li class=""><a class="nav-link" href="/dashboard"><i class="fas fa-paper-plane"></i>
+                <span>Dashboard</span></a></li>
+            <li class=""><a class="nav-link" href="/map"><i class="fas fa-paper-plane"></i>
+                <span>Map Dashboard</span></a></li>
             <li class="menu-header">Info</li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
