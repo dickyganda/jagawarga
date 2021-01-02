@@ -20,9 +20,9 @@
                     <li><a class="nav-link" href="/datalokasi">Data Lokasi</a></li>
                 </ul>
             </li> --}}
-            <li class=""><a class="nav-link" href="/dashboard"><i class="fas fa-paper-plane"></i>
+            <li class=""><a class="nav-link" href="/dashboard"><i class="fas fa-tachometer-alt"></i>
                 <span>Dashboard</span></a></li>
-            <li class=""><a class="nav-link" href="/map"><i class="fas fa-paper-plane"></i>
+            <li class=""><a class="nav-link" href="/map"><i class="fas fa-map-marker-alt"></i>
                 <span>Map Dashboard</span></a></li>
             <li class="menu-header">Info</li>
             <li class="nav-item dropdown">

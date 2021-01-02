@@ -36,9 +36,8 @@ Data Bantuan
       <td>{{ $bantuan->stok}}</td>
       <td>{{ $bantuan->satuan}}</td>
 			<td>
-				<a href="/editbantuan/{{ $bantuan->id_bantuan }}">Edit</a>
-				|
-				<a href="#"onclick="deletebantuan({{$bantuan->id_bantuan}})">Hapus</a>
+				<a href="/editbantuan/{{ $bantuan->id_bantuan }}" class="btn btn-warning" role="button">Edit</a>
+				<a href="#"onclick="deletebantuan({{$bantuan->id_bantuan}})" class="btn btn-danger" role="button">Hapus</a>
 			</td>
 		</tr>
     @endforeach
@@ -53,13 +52,13 @@ Data Bantuan
   function deletebantuan(id_bantuan){
    
     Swal.fire({
-    title: 'Are you sure?',
-    text: "You won't be able to revert this!",
+    title: 'Hapus Data ?',
+    text: "Anda tidak akan dapat mengembalikan ini!",
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, delete it!'
+    confirmButtonText: 'Hapus'
   }).then((result) => {
     if (result.isConfirmed) {
 

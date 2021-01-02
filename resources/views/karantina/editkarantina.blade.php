@@ -14,7 +14,7 @@ Edit Data Karantina
 
 <div class="section-body">
 
-    <a href="/pegawai"> Kembali</a>
+    <a href="/datakarantina" class="btn btn-primary" role="button"> Kembali</a>
 
     <br />
     <br />
@@ -37,14 +37,12 @@ Edit Data Karantina
           <label>Latitude</label>
           <input type="text" name="latitude" class="form-control form-control-sm" value="{{ $karantina->latitude }}">
         </div>
-        {{-- ID Lokasi <input type="text" required="required" name="id_lokasi" value="{{ $karantina->id_lokasi }}"> <br /> --}}
         
         <div class="form-group">
-          <label>Longtude</label>
+          <label>Longitude</label>
           <input type="text" name="longitude" class="form-control form-control-sm" value="{{ $karantina->longitude }}">
         </div>
 
-        {{-- ID Penyakit <input type="text" required="required" name="id_penyakit" value="{{ $karantina->id_penyakit }}"> <br /> --}}
         <div class="form-group">
           <label>Nama Penyakit</label>
           <input type="text" name="nama_penyakit" class="form-control form-control-sm" value="{{ $karantina->nama_penyakit }}">
@@ -55,17 +53,7 @@ Edit Data Karantina
           <input type="date" name="tgl_input" class="form-control form-control-sm" value="{{ $karantina->tgl_input }}">
         </div>
         
-        {{-- <div class="form-group">
-          <label>Waktu Karantina</label>
-          <input type="text" name="waktu_karantina" class="form-control form-control-sm" value="{{ $karantina->waktu_karantina }}">
-        </div> --}}
-        
-        {{-- <div class="form-group">
-          <label>Status</label>
-          <input type="text" name="status" class="form-control form-control-sm" value="{{ $karantina->status }}">
-        </div> --}}
-        
-        <input type="submit" value="Simpan">
+        <input type="submit" value="Simpan" class="btn btn-primary" role="button">
     </form>
     @endforeach
 </div>

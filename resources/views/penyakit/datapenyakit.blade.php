@@ -1,6 +1,6 @@
 @extends('layouts.page')
 @section('title')
-Dashboord    
+Data Penyakit    
 @endsection
 
 @push('styles')
@@ -9,12 +9,12 @@ Dashboord
 
 @section('content')
 <div class="section-header">
-  <h1>Dashboard</h1>
+  <h1>Data Penyakit</h1>
   
 </div>
 
 <div class="section-body">
-    <a href="/tambahpenyakit"> + Tambah Data Baru</a>
+    <a href="/tambahpenyakit" class="btn btn-success" role="button">Tambah Data Penyakit</a>
 	
 	<br/>
 	<br/>
@@ -39,9 +39,8 @@ Dashboord
       <td>{{ $penyakit->waktu_karantina }}</td>
       <td>{{ $penyakit->penanganan_pertama }}</td>
 			<td>
-				<a href="/editpenyakit/{{ $penyakit->id_penyakit }}">Edit</a>
-				|
-				<a href="#"onclick="deletepenyakit({{$penyakit->id_penyakit}})">Hapus</a>
+				<a href="/editpenyakit/{{ $penyakit->id_penyakit }}" class="btn btn-warning" role="button">Edit</a>
+				<a href="#"onclick="deletepenyakit({{$penyakit->id_penyakit}})" class="btn btn-danger" role="button">Hapus</a>
 			</td>
 		</tr>
     @endforeach
@@ -58,13 +57,13 @@ Dashboord
     function deletepenyakit(id_penyakit){
      
       Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'Hapus Data ?',
+      text: "Anda tidak akan dapat mengembalikan ini!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Hapus'
     }).then((result) => {
       if (result.isConfirmed) {
 

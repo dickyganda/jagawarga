@@ -14,7 +14,7 @@ Data Lokasi
 </div>
 
 <div class="section-body">
-    <a href="/tambahlokasi"> + Tambah Data Baru</a>
+    <a href="/tambahlokasi" class="btn btn-success" role="button"> Tambah Data Baru</a>
 	
 	<br/>
 	<br/>
@@ -37,9 +37,8 @@ Data Lokasi
 			<td>{{ $lokasi->latitude }}</td>
 			<td>{{ $lokasi->longitude }}</td>
 			<td>
-				<a href="/editlokasi/{{ $lokasi->id_lokasi }}">Edit</a>
-				|
-				<a href="#"onclick="deletelokasi({{$lokasi->id_lokasi}})">Hapus</a>
+				<a href="/editlokasi/{{ $lokasi->id_lokasi }}" class="btn btn-warning" role="button">Edit</a>
+				<a href="#"onclick="deletelokasi({{$lokasi->id_lokasi}})" class="btn btn-danger" role="button">Hapus</a>
 			</td>
 		</tr>
     @endforeach
@@ -56,13 +55,13 @@ Data Lokasi
     function deletelokasi(id_lokasi){
      
       Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'Hapus Data ?',
+      text: "Anda tidak akan dapat mengembalikan ini!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Hapus'
     }).then((result) => {
       if (result.isConfirmed) {
 

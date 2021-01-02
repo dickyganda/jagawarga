@@ -14,7 +14,7 @@ Data Penyaluran Bantuan
 </div>
 
 <div class="section-body">
-    <a href="/tambahpenyaluranbantuan"> + Tambah Data Baru</a>
+    <a href="/tambahpenyaluranbantuan" class="btn btn-success" role="button"> + Tambah Data Penerima Bantuan</a>
 
     <br />
     <br />
@@ -25,17 +25,10 @@ Data Penyaluran Bantuan
                 <th>ID Penyaluran Bantuan</th>
                 <th>NIK</th>
                 <th>Nama Penerima</th>
-                {{-- <th>ID Bantuan</th> --}}
                 <th>Jenis Bantuan</th>
                 <th>Qty</th>
                 <th>Status</th>
                 <th>Waktu Peenyaluran Bantuan</th>
-                {{-- <th>Latitude</th>
-            <th>Longiitude</th> --}}
-                {{-- <th>Tanggal Input</th> --}}
-                {{-- <th>Waktu Karantina</th>
-            <th>Sisa Waktu</th>
-            <th>Status</th> --}}
                 <th>Opsi</th>
             </tr>
         </thead>
@@ -45,21 +38,18 @@ Data Penyaluran Bantuan
                 <td>{{ $penyaluranbantuan->id_penyaluran_bantuan }}</td>
                 <td>{{ $penyaluranbantuan->nik }}</td>
                 <td>{{ $penyaluranbantuan->nama }}</td>
-                {{-- <td>{{ $penyaluranbantuan->id_bantuan }}</td> --}}
                 <td>{{ $penyaluranbantuan->jenis_bantuan }}</td>
                 <td>{{ $penyaluranbantuan->jumlah }}</td>
                 <td>{{ $penyaluranbantuan->status }}</td>
                 <td>{{ date_format(date_create($penyaluranbantuan->tgl_penyaluran_bantuan),"d-m-Y") }}</td>
 
                 <td>
-                    {{-- <a href="/editpenyaluranbantuan/{{ $penyaluranbantuan->id_penyaluran_bantuan }}">Edit</a> --}}
-                    |
                     <a href="#"
-                        onclick="deletepenyaluranbantuan({{$penyaluranbantuan->id_penyaluran_bantuan}})">Hapus</a>
+                        onclick="deletepenyaluranbantuan({{$penyaluranbantuan->id_penyaluran_bantuan}})" class="btn btn-danger" role="button">Hapus</a>
                     
                     @if ($penyaluranbantuan->status == 'belum')
-                    |
-                    <a href="#" onclick="salurkanbantuan({{$penyaluranbantuan->id_penyaluran_bantuan}})">Salurkan</a>
+
+                    <a href="#" onclick="salurkanbantuan({{$penyaluranbantuan->id_penyaluran_bantuan}})" class="btn btn-success" role="button">Salurkan</a>
                         
                     @endif
 

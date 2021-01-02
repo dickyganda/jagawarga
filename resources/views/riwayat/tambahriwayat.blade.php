@@ -13,7 +13,7 @@ Tambah Data Riwayat Penyakit
 </div>
 
 <div class="section-body">
-  <a href="/datapenyakit"> Kembali</a>
+  <a href="/datariwayat" class="btn btn-primary" role="button"> Kembali</a>
 	
 	<br/>
 	<br/>
@@ -21,14 +21,11 @@ Tambah Data Riwayat Penyakit
 	<form id="tambahriwayat" method="post">
 		{{ csrf_field() }}
         NIK <input type="text" name="nik" required="required"> <br/>
-        {{-- Nomor KK <input type="text" name="nik" required="required"> <br/> --}}
         Nama <input type="text" name="nama" required="required"> <br/>
         Nama Penyakit <input type="text" name="nama_penyakit" required="required"> <br/>
         Latitude <input type="text" name="latitude" required="required"> <br/>
         Longitude <input type="text" name="longitude" required="required"> <br/>
-        {{-- Tanggal Input <input type="date" name="tgl_input" required="required"> <br/>
-        Waktu Karantina <input type="text" name="sisa_waktu" required="required"> <br/> --}}
-		<input type="submit" value="Tambah">
+        <input type="submit" value="Tambah">
 	</form>
 </div>    
 @endsection

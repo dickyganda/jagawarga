@@ -15,7 +15,7 @@ Edit Data Warga
 <div class="section-body">
     <h3>Edit Data Warga</h3>
 
-    <a href="/pegawai"> Kembali</a>
+    <a href="/datawarga" class="btn btn-primary" role="button"> Kembali</a>
 
     <br />
     <br />

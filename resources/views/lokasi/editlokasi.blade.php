@@ -14,7 +14,7 @@ Edit Data Lokasi
 
 <div class="section-body">
 
-    <a href="/pegawai"> Kembali</a>
+    <a href="/datalokasi" class="btn btn-primary" role="button"> Kembali</a>
 
     <br />
     <br />
@@ -38,7 +38,7 @@ Edit Data Lokasi
           <input type="text" name="longitude" class="form-control form-control-sm" value="{{ $lokasi->longitude }}" >
         </div>
         
-        <input type="submit" value="Simpan">
+        <input type="submit" value="Simpan" class="btn btn-primary" role="button">
     </form>
     @endforeach
 </div>

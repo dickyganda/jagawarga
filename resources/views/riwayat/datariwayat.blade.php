@@ -14,7 +14,7 @@ Data Riwayat
 </div>
 
 <div class="section-body">
-    <a href="/tambahriwayat"> + Tambah Data Baru</a>
+    {{-- <a href="/tambahriwayat" class="btn btn-success" role="button"> Tambah Data Riwayat Baru</a> --}}
 	
 	<br/>
 	<br/>
@@ -41,9 +41,8 @@ Data Riwayat
       <td>{{ $riwayat->latitude }}</td>
       <td>{{ $riwayat->longitude }}</td>
       <td>
-				<a href="/editriwayat/{{ $riwayat->id_riwayat }}">Edit</a>
-				|
-        <a href="#"onclick="deleteriwayat({{$riwayat->id_riwayat}})">Hapus</a>
+				{{-- <a href="/editriwayat/{{ $riwayat->id_riwayat }}" class="btn btn-warning" role="button">Edit</a> --}}
+        <a href="#"onclick="deleteriwayat({{$riwayat->id_riwayat}})" class="btn btn-danger" role="button">Hapus</a>
 			</td>
 		</tr>
     @endforeach
@@ -60,13 +59,13 @@ Data Riwayat
     function deleteriwayat(id_riwayat){
      
       Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'Hapus Data ?',
+      text: "Anda tidak akan dapat mengembalikan ini!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Hapus'
     }).then((result) => {
       if (result.isConfirmed) {
 

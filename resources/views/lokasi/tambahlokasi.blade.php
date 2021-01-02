@@ -13,7 +13,7 @@ Tambah Data Lokasi
 </div>
 
 <div class="section-body">
-  <a href="/datalokasi"> Kembali</a>
+  <a href="/datalokasi" class="btn btn-primary" role="button"> Kembali</a>
 	
 	<br/>
 	<br/>
@@ -33,7 +33,7 @@ Tambah Data Lokasi
       <input type="text" name="longitude" required="required" class="form-control form-control-sm" placeholder="Longitude">
     </div>
 		
-		<input type="submit" value="Tambah">
+		<input type="submit" value="Tambah" class="btn btn-primary" role="button">
 	</form>
 </div>    
 @endsection

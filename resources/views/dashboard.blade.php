@@ -17,18 +17,21 @@ Dashboord
     <div class="card-group">
         <div class="card bg-primary">
             <div class="card-body text-center">
+                <i class="fas fa-user-friends"></i>
                 <p class="card-text">Jumlah Penduduk</p>
                 <h4>{{$jumlah_penduduk}}</h4>
             </div>
         </div>
         <div class="card bg-warning">
             <div class="card-body text-center">
+                <i class="fas fa-viruses"></i>
                 <p class="card-text">Jenis Penyakit Menular</p>
                 <h4>{{$jumlah_penyakit}}</h4>
             </div>
         </div>
         <div class="card bg-success">
             <div class="card-body text-center">
+                <i class="fas fa-chart-line"></i>
                 <p class="card-text">Jumlah Kasus</p>
                 <h4>{{$jumlah_kasus_aktif}}</h4>
             </div>
@@ -53,7 +56,7 @@ Dashboord
 <script>
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
             datasets: [{

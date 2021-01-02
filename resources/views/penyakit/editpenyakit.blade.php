@@ -14,7 +14,7 @@ Edit Data Penyakit
 
 <div class="section-body">
 
-    <a href="/pegawai"> Kembali</a>
+    <a href="/datapenyakit" class="btn btn-primary" role="button"> Kembali</a>
 
     <br />
     <br />
@@ -43,7 +43,7 @@ Edit Data Penyakit
           <input type="text" name="penanganan_pertama" class="form-control form-control-sm" value="{{ $penyakit->penanganan_pertama }}" >
         </div>
         
-        <input type="submit" value="Simpan">
+        <input type="submit" value="Simpan" class="btn btn-primary" role="button">
     </form>
     @endforeach
 </div>

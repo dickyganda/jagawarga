@@ -31,7 +31,6 @@ Data Warga
 
 <div class="section-body">
   <div class="card w-100">
-  {{-- <a href="/tambahwarga"> + Tambah Data Baru</a> --}}
   <a href="/tambahwarga" class="btn btn-success" role="button">Tambah Data Baru</a>
 
   <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">

@@ -14,7 +14,7 @@ Data Karantina
 </div>
 
 <div class="section-body">
-    <a href="/tambahkarantina"> + Tambah Data Baru</a>
+    <a href="/tambahkarantina" class="btn btn-success" role="button"> Tambah Data Karantina</a>
 	
 	<br/>
 	<br/>
@@ -26,9 +26,7 @@ Data Karantina
             <th>NIK</th>
             <th>Nomor KK</th>
             <th>Nama</th>
-            {{-- <th>ID Penyakit</th> --}}
             <th>Nama Penyakit</th>
-            {{-- <th>ID Lokasi</th> --}}
             <th>Latitude</th>
             <th>Longiitude</th>
             <th>Tanggal Input</th>
@@ -78,12 +76,10 @@ Data Karantina
 			<td>
 				{{-- <a href="/editkarantina/{{ $karantina->id_karantina }}">Edit</a>
 				| --}}
-        <a href="#"onclick="deletekarantina({{$karantina->id_karantina}})">Hapus</a>
-        |
-        @if ($status=="selesai"){
-        <a href="#"onclick="tambahwaktukarantina({{$karantina->id_karantina}})">Tambah</a>
+        <a href="#"onclick="deletekarantina({{$karantina->id_karantina}})" class="btn btn-danger" role="button">Hapus</a>
+        @if ($status=="selesai")
+        <a href="#"onclick="tambahwaktukarantina({{$karantina->id_karantina}})" class="btn btn-success" role="button">Tambah</a>
 
-        }    
         @endif
 			</td>
 		</tr>
@@ -101,13 +97,13 @@ Data Karantina
     function deletekarantina(id_karantina){
      
       Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'Hapus Data ?',
+      text: "Anda tidak akan dapat mengembalikan ini!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Hapus'
     }).then((result) => {
       if (result.isConfirmed) {
 

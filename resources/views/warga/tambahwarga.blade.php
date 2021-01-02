@@ -13,7 +13,7 @@ Tambah Data Warga
 </div>
 
 <div class="section-body">
-  <a href="/datawarga"> Kembali</a>
+  <a href="/datawarga" class="btn btn-primary" role="button"> Kembali</a>
 	
 	<br/>
 	<br/>
@@ -40,22 +40,6 @@ Tambah Data Warga
         <label for="male">Laki-Laki</label>
         <input type="radio" name="jk" value="Perempuan">
         <label for="female">Perempuan</label> <br/>
-
-        {{-- <div class="input-group mb-2 mr-sm-2">
-          <input type="text" class="form-control" name="latitude" placeholder="Latitude">
-        </div>
-
-        <div class="input-group mb-2 mr-sm-2">
-          <input type="text" class="form-control" name="longitude" placeholder="Longitude">
-        </div> --}}
-
-        {{-- <div class="form-group">
-          <input type="text" name="riwayat" required="required" class="form-control form-control-sm" placeholder="Riwayat">
-        </div> --}}
-
-        {{-- <div class="form-group">
-          <input type="number" name="waktu_karantina" required="required" class="form-control form-control-sm" placeholder="Waktu Karantina">
-        </div> --}}
 
         <button class="btn btn-primary" type="submit">Tambah</button>
 	</form>

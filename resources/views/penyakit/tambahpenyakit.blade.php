@@ -13,7 +13,7 @@ Tambah Data Penyakit
 </div>
 
 <div class="section-body">
-  <a href="/datapenyakit"> Kembali</a>
+  <a href="/datapenyakit" class="btn btn-primary" role="button"> Kembali</a>
 	
 	<br/>
 	<br/>
@@ -36,7 +36,7 @@ Tambah Data Penyakit
       <textarea type="text" name="penanganan_pertama" required="required" class="form-control form-control-sm" placeholder="Penanganan Pertama"></textarea>
     </div>
 
-		<input type="submit" value="Tambah">
+		<input type="submit" value="Tambah" class="btn btn-primary" role="button">
 	</form>
 </div>    
 @endsection
