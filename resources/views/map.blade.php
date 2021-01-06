@@ -42,7 +42,7 @@ var greenIcon = L.icon({
     id: 'mapbox/streets-v11',
     tileSize: 512,
     zoomOffset: -1,
-    accessToken: 'pk.eyJ1IjoiZGlja3lnYW5kYSIsImEiOiJja2lkNTFhcWUwNjM3MnJyd2J3NDhpaXZtIn0._TXyRIxO-o-T4eLtoV1v6Q'
+    accessToken: 'pk.eyJ1IjoiZGlja3lnYW5kYSIsImEiOiJja2ppMDJ2aXM1NGJ0MnpsZ205NXV3bWM1In0.vIDLcJCQxtyyf-xS-y9vCA'
 }).addTo(mymap);
 
 @php
@@ -81,10 +81,12 @@ var greenIcon = L.icon({
 
       }
       $text_temp = $riwayat->value;
+
     @endphp
 
 @endforeach
 
-.bindPopup('{{$text}}').openPopup();
+// .bindPopup('{{ $text}}').openPopup();
+
 </script>    
 @endpush
