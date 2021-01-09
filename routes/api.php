@@ -24,4 +24,6 @@ Route::post('tambahbantuan','InfobantuanController@tambahbantuan');
 
 Route::get('datakarantina', 'InfokarantinaController@Getdatakarantina');
 
-// Route::get('/map', 'MapController@Getdatamap');
+Route::get('/map', 'MapController@Getdatamap');
+
+Route::get('/alldata', 'MapController@Getalldata');

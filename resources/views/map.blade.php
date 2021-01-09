@@ -56,16 +56,17 @@ var greenIcon = L.icon({
 
     @php
       if($latitude != $riwayat->latitude && $longitude != $riwayat->longitude){
-        if($latitude == 0 && $longitude == 0){
+        if($latitude != 0 && $longitude != 0){
 
-          $latitude = $riwayat->latitude;
-          $longitude = $riwayat->longitude;
-        }
-        else{
           echo ".bindPopup('" . $text . "').openPopup();";
           $text = '';
           $i = 1;
+
         }
+
+        $latitude = $riwayat->latitude;
+        $longitude = $riwayat->longitude;
+
         echo "L.marker([" . $riwayat->latitude . ", " . $riwayat->longitude . "], {icon: greenIcon}).addTo(mymap)";
           // $text = $i++ . ". " . $riwayat->nama . ", " . $riwayat->nama_penyakit;
           $text = $i++ . ". " . $riwayat->value;

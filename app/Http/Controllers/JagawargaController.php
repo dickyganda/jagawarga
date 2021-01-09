@@ -40,7 +40,7 @@ class JagawargaController extends Controller
               select 9 union all select 10 union all select 11 union all select 12
              ) m left outer join
              tb_karantina
-             on m.mon = month(tgl_input) and year(tgl_input) = 2020
+             on m.mon = month(tgl_input) and year(tgl_input) = " . date('Y') . "
         GROUP BY m.mon;
         
         ");
