@@ -19,9 +19,10 @@ class InfolokasiController extends Controller
     }
 
     function viewtambahlokasi(){
+        $datawarga = DB::table('tb_warga as w')->get();
 
         // memanggil view tambahpenyakit
-        return view('/lokasi/tambahlokasi');
+        return view('/lokasi/tambahlokasi' , ['datawarga' => $datawarga]);
     }
 
     function tambahlokasi(Request $request){
