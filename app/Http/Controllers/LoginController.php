@@ -12,17 +12,22 @@ class LoginController extends Controller
     //
 function Login(Request $request){
         // mengambil data dari table tb_warga
-        $warga = DB::table('tb_warga')->where('nik','=',$request->input('nik'))
-        ->where('nama','=',$request->input('nama'))
+        $warga = DB::table('tb_warga')
+        ->where('nik','=', $request->input('nik'))
+        ->where('nama','=', $request->input('nama'))
         ->first();
+
+        $response = array();
         if($warga){
-            $status = $warga;
+            $response['status'] = 'success';
+            $response['data'] = $warga;
         }else{
-            $status= 'failed';
+            $response['status'] = 'failed';
+
 
         }
  
     	// mengirim data warga ke view datawarga
-    	return response()->json(['status'=>$status]);
+    	return response()->json(['response'=>$response]);
     }
 }
