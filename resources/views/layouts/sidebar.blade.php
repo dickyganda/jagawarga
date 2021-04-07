@@ -18,7 +18,6 @@
                     <li><a class="nav-link" href="/datapenyakit">Data Penyakit</a></li>
                     <li><a class="nav-link" href="/databantuan">Data Bantuan</a></li>
                     <li><a class="nav-link" href="/datalokasi">Data Lokasi</a></li>
-                    <li><a class="nav-link" href="/alldata">All Data</a></li>
                 </ul>
             </li>
             <li class="menu-header">Info</li>
