@@ -21,7 +21,7 @@ Tambah Data Lokasi
 	<form id="tambahlokasi" method="post">
     {{ csrf_field() }}
     <select id="no_kk" name="no_kk" class="form-control select2" onchange="selectTypeNo_kk(this)" required>
-      <option></option>
+      {{-- <option></option> --}}
       @foreach ($datawarga as $warga)
       <option value="{{$warga->nik}}">{{$warga->no_kk}}</option>
       @endforeach
