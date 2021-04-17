@@ -15,29 +15,44 @@ class InfokarantinaController extends Controller
 {
 
     function Getdatakarantina(){
-        // mengambil data dari table tb_penyakit
-        $datakarantina = DB::table('tb_karantina as k')
-            ->join('tb_warga as w', 'w.nik', '=', 'k.nik')
-            ->join('tb_penyakit as p', 'p.id_penyakit', '=', 'k.id_penyakit')
-            ->join('tb_lokasi as l', 'l.id_lokasi', '=', 'k.id_lokasi')
+        
+        $datakarantina = DB::table('tb_warga as w')
+        ->select(DB::raw('coalesce(nama_penyakit, "-") as nama_penyakit'), 'nama', 'waktu_karantina', 'tgl_input', 'id_karantina')
+            ->leftJoin('tb_karantina as k', 'w.nik', '=', 'k.nik')
+            ->leftJoin('tb_penyakit as p', 'p.id_penyakit', '=', 'k.id_penyakit')
+            ->leftJoin('tb_lokasi as l', 'l.id_lokasi', '=', 'k.id_lokasi')
             ->get();
+            
         $response = array();
         foreach($datakarantina as $datakarantina){
             $diff = date("Y-m-d", strtotime('+' . $datakarantina->waktu_karantina . "days", strtotime($datakarantina->tgl_input)));
             $diff = date_diff(date_create($diff), date_create(date("Y-m-d")));
 
             if($diff->format("%R") == '+'){ 
-                $status = 'Selesai'; 
+                $waktu_karantina = 'Selesai'; 
             }elseif($diff->format("%a") == '0'){ 
-                $status = 'Selesai'; 
-            }else{
-                $status = $datakarantina->waktu_karantina." Hari";
+                $waktu_karantina = 'Selesai'; 
+            }
+            else{
+                $waktu_karantina = $datakarantina->waktu_karantina." Hari";
             }
 
-            $row['id_karantina'] = $datakarantina->id_karantina;
+            if($datakarantina->waktu_karantina>=0){
+                if($datakarantina->waktu_karantina==null){
+                    $waktu_karantina='-';
+                    $status = 'sehat';
+                }else{
+                    $status = 'sakit';
+                }
+            }else{
+                $status = 'sehat';
+            }
+
+            // $row['id_karantina'] = $datakarantina->id_karantina;
             $row['nama'] = $datakarantina->nama;
             $row['nama_penyakit'] = $datakarantina->nama_penyakit;
-            $row['waktu_karantina'] = $status;
+            $row['waktu_karantina'] = $waktu_karantina;
+            $row['status'] = $status;
 
             $response[] = $row;
         }
@@ -121,12 +136,8 @@ public function deletekarantina($id_karantina)
 
     $add = new Riwayat;
     $add->nik = $datawarga->nik;
-    // $add->nama = $datawarga->nama;
     $add->id_penyakit = $datapenyakit->id_penyakit;
     $add->id_lokasi = $datalokasi->id_lokasi;
-    // $add->latitude = $datalokasi->latitude;
-    // $add->longitude = $datalokasi->longitude;
-    // $add->tgl_input = Date('Y-m-d');
     $add->save();
 	// menghapus data penyakit berdasarkan id yang dipilih
 	DB::table('tb_karantina')->where('id_karantina',$id_karantina)->delete();

@@ -44,9 +44,9 @@ class InfobantuanController extends Controller
 
     public function editbantuan($id_bantuan)
 {
-	// mengambil data penyakit berdasarkan id yang dipilih
+	
 	$bantuan = DB::table('tb_bantuan')->where('id_bantuan',$id_bantuan)->get();
-	// passing data penyakit yang didapat ke view edit.blade.php
+	
 	return view('/bantuan/editbantuan',['databantuan' => $bantuan]);
 
 }

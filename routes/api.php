@@ -18,12 +18,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('login','LoginController@login');
+Route::post('login','LoginController@login'); //login untuk mobile
 
-Route::post('tambahbantuan','InfobantuanController@tambahbantuan');
+Route::post('tambahbantuan','InfobantuanController@tambahbantuan'); //tambah bantuan dari mobile ke web
 
-Route::get('datakarantina', 'InfokarantinaController@Getdatakarantina');
+Route::get('datakarantina', 'InfokarantinaController@Getdatakarantina'); //menampilkan data semua warga dan status karantina
 
 Route::get('/map', 'MapController@Getdatamap');
 
-Route::get('/alldata', 'MapController@Getalldata');
