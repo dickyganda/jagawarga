@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+
+  db:
+    container_name: jagawarga_sql_db
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: hjkl
+    ports:
+      - 3306:3306
+
+  adminer:
+    container_name: sql_db_manajer
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
