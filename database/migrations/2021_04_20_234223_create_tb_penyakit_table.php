@@ -18,7 +18,7 @@ class CreateTbpenyakitTable extends Migration
         Schema::create('tb_penyakit', function (Blueprint $table) {
             $table->integer('id_penyakit');
             $table->string('nama_penyakit', 255);
-            $table->string('gejala', 255);
+            $table->string('gejala', 1024);
             $table->integer('waktu_karantina');
             $table->string('penanganan_pertama', 255);
             $table->timestamps();
