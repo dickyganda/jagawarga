@@ -69,7 +69,7 @@
             "@php artisan key:generate --ansi"
         ],
         "post-install-cmd": [
-            "php artisna cache:clear",
+            "php artisan cache:clear",
             "php artisan migrate",
             "php artisan db:seed",
             "chmod -R 777 public/"
