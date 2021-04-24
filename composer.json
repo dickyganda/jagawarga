@@ -8,7 +8,7 @@
     ],
     "repositories": [
         {
-             "type": "composer", 
+             "type": "composer",
              "url": "https://packagist.org"
         },
         { "packagist": false }
@@ -67,6 +67,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "post-install-cmd": [
+            "chmod -R 777 public/"
         ]
     }
 }
