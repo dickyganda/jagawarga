@@ -10,6 +10,44 @@ use DB;
 class MapController extends Controller
 {
 
+    public function mapmobileindex()
+    {
+
+        $datariwayat = DB::select("
+
+        SELECT 
+            l.latitude, 
+            l.longitude, 
+            w.no_kk, 
+            CONCAT_WS(\":\", w.nama, sub.penyakit) value 
+        FROM 
+            tb_lokasi l 
+            JOIN tb_warga w ON w.no_kk = l.no_kk 
+            LEFT JOIN tb_riwayat r ON r.nik = w.nik 
+            LEFT JOIN (
+            select 
+                w.nik nik, 
+                GROUP_CONCAT(p.nama_penyakit SEPARATOR ',') penyakit 
+            from 
+                tb_warga w 
+                join tb_riwayat r ON w.nik = r.nik 
+                join tb_penyakit p ON p.id_penyakit = r.id_penyakit 
+            group by 
+                w.nik 
+            order by 
+                w.nik
+            ) sub ON sub.nik = w.nik 
+        group by 
+            w.nik, w.no_kk, l.latitude, l.longitude, w.nama, sub.penyakit
+        order by 
+            l.id_lokasi, 
+            w.nama, 
+            sub.penyakit
+        ");
+
+        return view('mapmobile', ['datariwayat' => $datariwayat]);
+    }
+
     public function index()
     {
 

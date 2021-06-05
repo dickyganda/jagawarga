@@ -78,9 +78,17 @@ public function getwarga(Request $request)
 {
 	// menghapus data warga berdasarkan id yang dipilih
 	// Warga::where('nik',$request->input('nik'))->first();
-	$getwarga = DB::table('tb_warga as w')->where('nik',$request->input('nik'))
-	->join('tb_lokasi as l', 'l.no_kk','=', 'w.no_kk')
-	->first();
+	$getwarga = DB::table('tb_warga as w')
+	->join('tb_lokasi as l', 'l.no_kk','=', 'w.no_kk');
+
+	if(!empty($request->input('nik'))){
+		$getwarga = $getwarga->where('nik', $request->input('nik'));
+	}
+	else if(!empty( $request->input('nama'))){
+		$getwarga = $getwarga->where('nama', $request->input('nama'));
+	}
+
+	$getwarga = $getwarga->first();
 		
 	return response()->json($getwarga);
 }

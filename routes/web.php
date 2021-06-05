@@ -81,4 +81,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/map', 'MapController@index')->name('map');
+Route::get('/mapmobile', 'MapController@mapmobileindex')->name('mapmobile');
 Route::get('alldata', 'MapController@Getalldata');
