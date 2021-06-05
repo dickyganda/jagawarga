@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2021 at 06:57 PM
+-- Generation Time: Jun 05, 2021 at 05:31 AM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
@@ -224,7 +224,8 @@ INSERT INTO `tb_riwayat` (`id_riwayat`, `nik`, `id_lokasi`, `id_penyakit`) VALUE
 (2, 3305041812130006, 2, 4),
 (3, 1402022007100003, 2, 4),
 (4, 3305041812130006, 2, 7),
-(5, 3305040901072053, 4, 4);
+(5, 3305040901072053, 4, 4),
+(6, 3524130308980002, 2, 7);
 
 -- --------------------------------------------------------
 
@@ -549,13 +550,13 @@ ALTER TABLE `tb_bantuan`
 -- AUTO_INCREMENT for table `tb_karantina`
 --
 ALTER TABLE `tb_karantina`
-  MODIFY `id_karantina` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_karantina` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_lokasi`
 --
 ALTER TABLE `tb_lokasi`
-  MODIFY `id_lokasi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_lokasi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tb_penyakit`
@@ -573,7 +574,7 @@ ALTER TABLE `tb_penyaluran_bantuan`
 -- AUTO_INCREMENT for table `tb_riwayat`
 --
 ALTER TABLE `tb_riwayat`
-  MODIFY `id_riwayat` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_riwayat` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tb_transaksi`
