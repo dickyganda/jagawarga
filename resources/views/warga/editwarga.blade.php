@@ -30,7 +30,7 @@ Edit Data Warga
 
         <div class="form-group">
           <label>Nomor KK</label>
-          <input type="text" name="no_kk" required="required" class="form-control form-control-sm" value="{{ $warga->no_kk }}" readonly>
+          <input type="text" name="no_kk" required="required" class="form-control form-control-sm" value="{{ $warga->no_kk }}" >
         </div>
 
         <div class="form-group">
