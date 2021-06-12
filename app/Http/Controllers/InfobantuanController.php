@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Bantuan;
+use App\Models\Transaksi_Bantuan;
 
 class InfobantuanController extends Controller
 {
@@ -22,6 +23,11 @@ class InfobantuanController extends Controller
 		//cari existing bantuan
 		$result = Bantuan::where("jenis_bantuan", "=", strtoupper($request->input('jenis_bantuan')))->first();
 		
+		//cari existing warga
+		$warga = Bantuan::where("nik", "=", strtoupper($request->input('nik')))->first();
+
+		$id_bantuan = null;
+
 		//jika ada, tambah stok
 		if(!empty($result)){
 
@@ -30,6 +36,7 @@ class InfobantuanController extends Controller
 				'satuan' => $request->satuan,
 			]);
 		
+			$id_bantuan = $result->id_bantuan;
 		}
 		else{
 			$add = new Bantuan;
@@ -37,7 +44,16 @@ class InfobantuanController extends Controller
 			$add->stok = $request->input('stok');
 			$add->satuan = $request->input('satuan');
 			$add->save();
+
+			$id_bantuan = $add->id;
 		}
+
+		//add transaksi
+		$add = new Transaksi_Bantuan;
+		$add->nik = strtoupper($request->input('nik'));
+		$add->id_bantuan = $id_bantuan;
+		$add->tgl_transaksi = date('Y-m-d');
+		$add->save();
 		
 		return response()->json(array('status' => 'success', 'reason' => 'Sukses Tambah Data'));
 	}

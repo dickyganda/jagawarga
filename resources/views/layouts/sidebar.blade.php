@@ -22,8 +22,8 @@
             </li>
             <li class="menu-header">Info</li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
-                        class="fas fa-info-circle"></i> <span>Info</span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-info-circle"></i>
+                    <span>Info</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="/datakarantina">Dalam Karantina</a></li>
                     <li><a class="nav-link" href="/datariwayat">Riwayat Penyakit Warga</a></li>
@@ -32,10 +32,13 @@
             </li>
             {{-- <li class=""><a class="nav-link" href="/databantuan"><i class="fas fa-hands-helping"></i>
                     <span>Transaksi Bantuan</span></a></li> --}}
-                    <li class=""><a class="nav-link" href="/datapenyaluranbantuan"><i class="fas fa-paper-plane"></i>
-                        <span>Penyaluran Bantuan</span></a></li>
+                    <li class=""><a class="nav-link" href="/datatransaksi"><i class="fas fa-paper-plane"></i>
+                        <span>Transaksi Bantuan</span></a></li>
+
+            <li class=""><a class="nav-link" href="/datapenyaluranbantuan"><i class="fas fa-paper-plane"></i>
+                    <span>Penyaluran Bantuan</span></a></li>
             <li class="nav-item dropdown">
-                
+
             </li>
         </ul>
 

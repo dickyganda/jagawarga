@@ -76,6 +76,8 @@ Route::post('updatepenyaluranbantuan','InfopenyaluranbantuanController@updatepny
 Route::get('deletepenyaluranbantuan/{id_penyaluran_bantuan}','InfopenyaluranbantuanController@deletepenyaluranbantuan');
 Route::get('salurkanbantuan/{id_penyaluran_bantuan}','InfopenyaluranbantuanController@salurkanbantuan');
 
+Route::get('datatransaksi', 'DataTransaksiController@datatransaksi');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
