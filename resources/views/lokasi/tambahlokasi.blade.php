@@ -20,10 +20,10 @@ Tambah Data Lokasi
 
 	<form id="tambahlokasi" method="post">
     {{ csrf_field() }}
-    <select id="no_kk" name="no_kk" class="form-control select2" onchange="selectTypeNo_kk(this)" required>
-      {{-- <option></option> --}}
+    <select id="no_kk" name="no_kk" class="form-control select2" {{--onchange="selectTypeNo_kk(this)"--}} required>
+      <option></option>
       @foreach ($datawarga as $warga)
-      <option value="{{$warga->nik}}">{{$warga->no_kk}}</option>
+      <option value="{{$warga->no_kk}}">{{$warga->no_kk}}</option>
       @endforeach
       </select>
 
@@ -72,27 +72,26 @@ Tambah Data Lokasi
 
   $(document).ready(function() {
     $('#no_kk').select2({
-      theme: 'bootstrap4',
       placeholder: "Pilih Nomor KK"
     });
   });
 
-  function selectTypeNo_kk(item){
-    var formdata= new FormData();
-    formdata.append('no_kk', item.options[item.selectedIndex].value);
-    $.ajax({
-      type: 'POST',
-      dataType:'json',
-      url: 'getwarga',
-      data: formdata,
-      contentType: false,
-      cache: false,
-      processData: false,
-      success:function(data){ 
-        $('#no_kk').val(data.no_kk);
-      }
-    })
-  }
+  // function selectTypeNo_kk(item){
+  //   var formdata= new FormData();
+  //   formdata.append('no_kk', item.options[item.selectedIndex].value);
+  //   $.ajax({
+  //     type: 'POST',
+  //     dataType:'json',
+  //     url: 'getwarga',
+  //     data: formdata,
+  //     contentType: false,
+  //     cache: false,
+  //     processData: false,
+  //     success:function(data){
+  //       $('#no_kk option[value=' + data.no_kk + ']').attr('selected','selected');
+  //     }
+  //   })
+  // }
 </script>
 
 @endpush

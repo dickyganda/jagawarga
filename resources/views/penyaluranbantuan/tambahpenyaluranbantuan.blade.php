@@ -34,10 +34,11 @@ Tambah Data Penyakit
             @endforeach
         </select>
 
-        {{-- ID Bantuan <input type="text" name="gejala" required="required"> <br/> --}}
-        Qty <input type="text" name="jumlah" required="required"> <br />
-        {{-- Penanganan Pertama <input type="text" name="penanganan_pertama" required="required"> <br/> --}}
-        <input type="submit" value="Tambah">
+        <div class="form-group">
+            <input type="text" name="jumlah" required="required" class="form-control form-control-sm" placeholder="Qty">
+          </div>
+
+          <button class="btn btn-primary" type="submit">Tambah</button>
     </form>
 </div>
 @endsection
@@ -74,49 +75,13 @@ Tambah Data Penyakit
 
     $(document).ready(function () {
         $('#nik').select2({
-            theme: 'bootstrap4',
             placeholder: "Pilih Nama"
         });
 
         $('#id_bantuan').select2({
-            theme: 'bootstrap4',
             placeholder: "Pilih Bantuan"
         });
     });
-
-    // function selectTypeNik(item) {
-    //     var formdata = new FormData();
-    //     formdata.append('nik', item.options[item.selectedIndex].value);
-    //     $.ajax({
-    //         type: 'POST',
-    //         dataType: 'json',
-    //         url: 'getwarga',
-    //         data: formdata,
-    //         contentType: false,
-    //         cache: false,
-    //         processData: false,
-    //         success: function (data) {
-    //             $('#nama').val(data.nama);
-    //         }
-    //     })
-    // }
-
-    // function selectTypeBantuan(item) {
-    //     var formdata = new FormData();
-    //     formdata.append('id_bantuan', item.options[item.selectedIndex].value);
-    //     $.ajax({
-    //         type: 'POST',
-    //         dataType: 'json',
-    //         url: 'getwarga',
-    //         data: formdata,
-    //         contentType: false,
-    //         cache: false,
-    //         processData: false,
-    //         success: function (data) {
-    //             $('#jenis_bantuan').val(data.nama);
-    //         }
-    //     })
-    // }
 
 </script>
 

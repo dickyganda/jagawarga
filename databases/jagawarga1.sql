@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2021 at 05:31 AM
+-- Generation Time: Jun 12, 2021 at 08:08 AM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
@@ -87,9 +87,9 @@ CREATE TABLE `tb_bantuan` (
 --
 
 INSERT INTO `tb_bantuan` (`id_bantuan`, `jenis_bantuan`, `stok`, `satuan`) VALUES
-(1, 'MAKANAN', 10, 'pcs'),
-(2, 'BERAS', 10, 'pcs'),
-(3, 'MINYAK', 10, 'pcs'),
+(1, 'MAKANAN', 20, 'pcs'),
+(2, 'BERAS', 30, 'pcs'),
+(3, 'MINYAK', 30, 'pcs'),
 (4, 'PAKAIAN', 10, 'pcs');
 
 -- --------------------------------------------------------
@@ -113,7 +113,9 @@ CREATE TABLE `tb_karantina` (
 INSERT INTO `tb_karantina` (`id_karantina`, `nik`, `id_lokasi`, `id_penyakit`, `tgl_input`) VALUES
 (5, 3321110902070002, 3, 2, '2020-12-12'),
 (6, 3321060902150009, 3, 3, '2020-12-01'),
-(8, 1402022211100002, 10, 7, '2021-01-02');
+(8, 1402022211100002, 10, 7, '2021-01-02'),
+(10, 3524130101480063, 20, 5, '2021-06-12'),
+(11, 3524130109870019, 7, 4, '2021-06-12');
 
 -- --------------------------------------------------------
 
@@ -151,7 +153,17 @@ INSERT INTO `tb_lokasi` (`id_lokasi`, `no_kk`, `latitude`, `longitude`) VALUES
 (19, 1402023007940002, '-7.098442', '112.283214'),
 (20, 3321114107480030, '-7.098432', '112.283830'),
 (22, 3321110505160010, '-7.098526', '112.283821'),
-(23, 1402027112590008, '-7.098472', '112.283332');
+(23, 1402027112590008, '-7.098472', '112.283332'),
+(30, 3524130901850002, '-7.099135', '112.283671'),
+(31, 3524130901850002, '-7.099136', '112.283672'),
+(32, 3524130901850002, '-7.099133', '112.283680'),
+(33, 3524130101300079, '-7.096270', '112.285988'),
+(34, 3524130101490010, '-7.096270', '112.285988'),
+(35, 3524130101320007, '-7.096270', '112.285988'),
+(36, 3524131506700018, '-7.096270', '112.285988'),
+(39, 1402021404770006, '-7.099133', '112.283672'),
+(40, 3305043001930004, '-7.099080', '112.283503'),
+(41, 3321067008910000, '-7.099065', '112.283422');
 
 -- --------------------------------------------------------
 
@@ -200,7 +212,10 @@ CREATE TABLE `tb_penyaluran_bantuan` (
 --
 
 INSERT INTO `tb_penyaluran_bantuan` (`id_penyaluran_bantuan`, `nik`, `id_bantuan`, `jumlah`, `status`, `tgl_penyaluran_bantuan`) VALUES
-(1, 1402010607088479, '1', '2', 'sudah', '2021-01-02');
+(1, 1402010607088479, '1', '2', 'sudah', '2021-01-02'),
+(8, 3524130101480063, '1', '10', 'sudah', '2021-06-12'),
+(9, 3524130101480063, '1', '10', 'sudah', '2021-06-12'),
+(10, 3524130109870019, '1', '10', 'sudah', '2021-06-12');
 
 -- --------------------------------------------------------
 
@@ -230,13 +245,25 @@ INSERT INTO `tb_riwayat` (`id_riwayat`, `nik`, `id_lokasi`, `id_penyakit`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_transaksi`
+-- Table structure for table `tb_transaksi_bantuan`
 --
 
-CREATE TABLE `tb_transaksi` (
-  `id_transaksi` int(100) NOT NULL,
-  `jumlah` int(255) NOT NULL
+CREATE TABLE `tb_transaksi_bantuan` (
+  `id_transaksi` int(11) NOT NULL,
+  `nik` bigint(20) NOT NULL,
+  `id_bantuan` int(11) NOT NULL,
+  `jumlah` varchar(255) NOT NULL,
+  `tgl_transaksi` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_transaksi_bantuan`
+--
+
+INSERT INTO `tb_transaksi_bantuan` (`id_transaksi`, `nik`, `id_bantuan`, `jumlah`, `tgl_transaksi`) VALUES
+(1, 3524130308980002, 1, '', '2021-06-12'),
+(2, 3524130308980002, 1, '', '2021-06-12'),
+(3, 3524130308980002, 1, '10', '2021-06-12');
 
 -- --------------------------------------------------------
 
@@ -506,9 +533,9 @@ ALTER TABLE `tb_riwayat`
   ADD PRIMARY KEY (`id_riwayat`);
 
 --
--- Indexes for table `tb_transaksi`
+-- Indexes for table `tb_transaksi_bantuan`
 --
-ALTER TABLE `tb_transaksi`
+ALTER TABLE `tb_transaksi_bantuan`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
@@ -550,13 +577,13 @@ ALTER TABLE `tb_bantuan`
 -- AUTO_INCREMENT for table `tb_karantina`
 --
 ALTER TABLE `tb_karantina`
-  MODIFY `id_karantina` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_karantina` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tb_lokasi`
 --
 ALTER TABLE `tb_lokasi`
-  MODIFY `id_lokasi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_lokasi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `tb_penyakit`
@@ -568,7 +595,7 @@ ALTER TABLE `tb_penyakit`
 -- AUTO_INCREMENT for table `tb_penyaluran_bantuan`
 --
 ALTER TABLE `tb_penyaluran_bantuan`
-  MODIFY `id_penyaluran_bantuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_penyaluran_bantuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tb_riwayat`
@@ -577,10 +604,10 @@ ALTER TABLE `tb_riwayat`
   MODIFY `id_riwayat` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tb_transaksi`
+-- AUTO_INCREMENT for table `tb_transaksi_bantuan`
 --
-ALTER TABLE `tb_transaksi`
-  MODIFY `id_transaksi` int(100) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tb_transaksi_bantuan`
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`

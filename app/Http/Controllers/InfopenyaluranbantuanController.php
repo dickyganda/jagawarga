@@ -15,15 +15,15 @@ class InfopenyaluranbantuanController extends Controller
         $datapenyaluranbantuan = DB::table('tb_penyaluran_bantuan as pb')
             ->join('tb_warga as w', 'w.nik', '=', 'pb.nik')
             ->join('tb_bantuan as b', 'b.id_bantuan', '=', 'pb.id_bantuan')
-            // ->join('tb_lokasi as l', 'l.id_lokasi', '=', 'r.id_lokasi')
             ->get();
-// dd($datakarantina);
+
     	// mengirim data penyakit ke view datapenyakit
     	return view('/penyaluranbantuan/datapenyaluranbantuan',['datapenyaluranbantuan' => $datapenyaluranbantuan]);
     }
 
     function viewtambahpenyaluranbantuan(){
         $getnik = DB::table('tb_warga as w')
+        ->join('tb_karantina as k', 'k.nik', '=', 'w.nik')
         ->get();
 
         $getbantuan = DB::table('tb_bantuan as b')
@@ -93,8 +93,8 @@ public function salurkanbantuan($id_penyaluran_bantuan)
     }
 
 	// update bantuan
-	DB::table('tb_bantuan')->where('id_bantuan',$penyaluranbantuan->id_penyaluran_bantuan)->update([
-		'stok' =>( $bantuan->stok -  $penyaluranbantuan->jumlah),
+	DB::table('tb_bantuan')->where('id_bantuan',$penyaluranbantuan->id_bantuan)->update([
+		'stok' =>( $bantuan->stok - $penyaluranbantuan->jumlah),
     ]);
 
 	// update penyaluranb bantuan

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Bantuan;
+use App\Models\Warga;
 use App\Models\Transaksi_Bantuan;
 
 class InfobantuanController extends Controller
@@ -24,7 +25,7 @@ class InfobantuanController extends Controller
 		$result = Bantuan::where("jenis_bantuan", "=", strtoupper($request->input('jenis_bantuan')))->first();
 		
 		//cari existing warga
-		$warga = Bantuan::where("nik", "=", strtoupper($request->input('nik')))->first();
+		$warga = Warga::where("nik", "=", strtoupper($request->input('nik')))->first();
 
 		$id_bantuan = null;
 
@@ -52,6 +53,7 @@ class InfobantuanController extends Controller
 		$add = new Transaksi_Bantuan;
 		$add->nik = strtoupper($request->input('nik'));
 		$add->id_bantuan = $id_bantuan;
+		$add->jumlah = $request->input('stok');
 		$add->tgl_transaksi = date('Y-m-d');
 		$add->save();
 		

@@ -33,9 +33,9 @@ Data Warga
   <div class="card w-100">
   <a href="/tambahwarga" class="btn btn-success" role="button">Tambah Data Baru</a>
 
-  <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
+  {{-- <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
     IMPORT EXCEL
-  </button>
+  </button> --}}
 	
 	<br/>
 	<br/>

@@ -87,7 +87,11 @@ var greenIcon = L.icon({
 
 @endforeach
 
-// .bindPopup('{{ $text}}').openPopup();
+  @php
+
+  echo ".bindPopup('" . $text . "').openPopup();";
+
+  @endphp
 
 </script>    
 @endpush

@@ -107,13 +107,13 @@ Data Penyaluran Bantuan
     function salurkanbantuan(id_penyaluran_bantuan) {
 
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Salurkan bantuan?',
+            // text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Ya, salurkan!'
         }).then((result) => {
             if (result.isConfirmed) {
 

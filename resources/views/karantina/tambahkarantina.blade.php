@@ -59,7 +59,7 @@ Tambah Data Karantina
         </div>
         <input type="hidden" id="id_lokasi" name="id_lokasi" required="required"> <br/>
         
-        <input type="submit" value="Tambah">
+        <input type="submit" value="Tambah" class="btn btn-primary" role="button">
 	</form>
 </div>    
 @endsection

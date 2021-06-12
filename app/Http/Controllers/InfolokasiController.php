@@ -75,7 +75,7 @@ public function getlokasi(Request $request)
 	->join('tb_lokasi as l', 'l.no_kk','=', 'w.no_kk')
 	->first();
 		
-	return response()->json($getlokasi);
+	return response()->json($getwarga);
 }
 
 }

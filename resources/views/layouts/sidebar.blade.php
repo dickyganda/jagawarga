@@ -35,7 +35,7 @@
                     <li class=""><a class="nav-link" href="/datatransaksi"><i class="fas fa-paper-plane"></i>
                         <span>Transaksi Bantuan</span></a></li>
 
-            <li class=""><a class="nav-link" href="/datapenyaluranbantuan"><i class="fas fa-paper-plane"></i>
+            <li class=""><a class="nav-link" href="/datapenyaluranbantuan"><i class="fas fa-shopping-cart"></i>
                     <span>Penyaluran Bantuan</span></a></li>
             <li class="nav-item dropdown">
 
