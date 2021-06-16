@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Transaksi_Bantuan;
 
-class DatatransaksiController extends Controller
+class DataTransaksiController extends Controller
 {
     function Datatransaksi(){
         
