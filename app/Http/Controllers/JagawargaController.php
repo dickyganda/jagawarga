@@ -29,24 +29,48 @@ class JagawargaController extends Controller
         
         ")[0]->total;
 
-        // dd($data);
+        $data = Penyakit::select('nama_penyakit')->get();
 
-        $kasusaktif_monthly = array();
-        $kasusaktif_monthly_query = DB::select("
-        
-        SELECT m.mon as bulan, COUNT(tgl_input) as total
-        FROM (select 1 as mon union all select 2 union all select 3 union all select 4 union all
-              select 5 union all select 6 union all select 7 union all select 8 union all
-              select 9 union all select 10 union all select 11 union all select 12
-             ) m left outer join
-             tb_karantina
-             on m.mon = month(tgl_input) and year(tgl_input) = " . date('Y') . "
-        GROUP BY m.mon;
-        
-        ");
-        foreach ($kasusaktif_monthly_query as $key) {
-            $kasusaktif_monthly[($key->bulan)-1] = $key->total;
+        foreach ($data as $key) {
+            $data_penyakit[] = $key->nama_penyakit;
         }
+
+        $data = DB::select("
+        
+            select count(k.id_penyakit) total
+
+            from tb_karantina k
+            
+            right join (
+                select id_penyakit, nama_penyakit
+                from tb_penyakit
+            ) p on  p.id_penyakit = k.id_penyakit
+            
+            group by p.id_penyakit
+            order by p.id_penyakit
+
+        ");
+
+        foreach ($data as $key) {
+            $total_penyakit_karantina[] = $key->total;
+        }
+
+        // $kasusaktif_monthly = array();
+        // $kasusaktif_monthly_query = DB::select("
+        
+        // SELECT m.mon as bulan, COUNT(tgl_input) as total
+        // FROM (select 1 as mon union all select 2 union all select 3 union all select 4 union all
+        //       select 5 union all select 6 union all select 7 union all select 8 union all
+        //       select 9 union all select 10 union all select 11 union all select 12
+        //      ) m left outer join
+        //      tb_karantina
+        //      on m.mon = month(tgl_input) and year(tgl_input) = " . date('Y') . "
+        // GROUP BY m.mon;
+        
+        // ");
+        // foreach ($kasusaktif_monthly_query as $key) {
+        //     $kasusaktif_monthly[($key->bulan)-1] = $key->total;
+        // }
 
 
         return view('dashboard', 
@@ -54,7 +78,9 @@ class JagawargaController extends Controller
                 'jumlah_penduduk' => $jumlah_penduduk,
                 'jumlah_penyakit' => $jumlah_penyakit,
                 'jumlah_kasus_aktif' => $jumlah_kasus_aktif,
-                'kasusaktif_monthly' => $kasusaktif_monthly
+                'data_penyakit' => $data_penyakit,
+                'total_penyakit_karantina' => $total_penyakit_karantina,
+                // 'kasusaktif_monthly' => $kasusaktif_monthly
             ]
         );
     }

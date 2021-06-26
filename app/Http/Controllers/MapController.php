@@ -57,7 +57,9 @@ class MapController extends Controller
             l.latitude, 
             l.longitude, 
             w.no_kk, 
-            CONCAT_WS(\":\", w.nama, sub.penyakit) value 
+            CONCAT_WS(\":\", w.nama, sub.penyakit) value,
+            sub.penyakit,
+            w.nama
         FROM 
             tb_lokasi l 
             JOIN tb_warga w ON w.no_kk = l.no_kk 

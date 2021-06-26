@@ -56,12 +56,12 @@ Dashboord
 <script>
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
-            labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
+            labels: <?php echo json_encode($data_penyakit); ?>,
             datasets: [{
-                label: '# of Votes',
-                data: {{json_encode($kasusaktif_monthly)}},
+                label: 'Jumlah Kasus',
+                data: {{json_encode($total_penyakit_karantina)}},
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -78,7 +78,7 @@ Dashboord
                     'rgba(153, 102, 255, 1)',
                     'rgba(255, 159, 64, 1)'
                 ],
-                borderWidth: 1
+                borderWidth: 1,
             }]
         },
         options: {

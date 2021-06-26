@@ -55,6 +55,14 @@ var greenIcon = L.icon({
 @foreach($datariwayat as $riwayat)
 
     @php
+
+      if(!empty($riwayat->penyakit)){
+        $warga_penyakit = $riwayat->nama . ":" . $riwayat->penyakit . "";
+      }
+      else{
+        $warga_penyakit = $riwayat->nama;
+      }
+
       if($latitude != $riwayat->latitude && $longitude != $riwayat->longitude){
         if($latitude != 0 && $longitude != 0){
 
@@ -69,19 +77,19 @@ var greenIcon = L.icon({
 
         echo "L.marker([" . $riwayat->latitude . ", " . $riwayat->longitude . "], {icon: greenIcon}).addTo(mymap)";
           // $text = $i++ . ". " . $riwayat->nama . ", " . $riwayat->nama_penyakit;
-          $text = $i++ . ". " . $riwayat->value;
+          $text = $i++ . ". " . $warga_penyakit;
       }
       else{
         // if($text_temp != $riwayat->nama . $riwayat->nama_penyakit){
         //   $text = $text . "<br>" . $i++ . ". " . $riwayat->nama . ", " . $riwayat->nama_penyakit;
         // }
 
-        if($text_temp != $riwayat->value){
-          $text = $text . "<br>" . $i++ . ". " . $riwayat->value;
+        if($text_temp != $warga_penyakit){
+          $text = $text . "<br>" . $i++ . ". " . $warga_penyakit;
         }
 
       }
-      $text_temp = $riwayat->value;
+      $text_temp = $warga_penyakit;
 
     @endphp
 

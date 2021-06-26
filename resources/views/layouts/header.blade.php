@@ -8,9 +8,9 @@
                                     class="fas fa-search"></i></a></li>
                     </ul>
                     <div class="search-element">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search"
+                        {{-- <input class="form-control" type="search" placeholder="Search" aria-label="Search"
                             data-width="250">
-                        <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                        <button class="btn" type="submit"><i class="fas fa-search"></i></button> --}}
                         <div class="search-backdrop"></div>
                         <div class="search-result">
                             <div class="search-header">
@@ -142,8 +142,30 @@
                             </div>
                         </div>
                     </li>
-                    <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
-                            class=""><i class=""></i></a>
+
+                    @php
+                        $data = DB::select('
+                            select *
+                            from tb_karantina k
+                            join tb_penyakit p ON p.id_penyakit = k.id_penyakit
+                            join tb_warga w ON w.nik = k.nik
+                            where DATE_ADD(tgl_input, INTERVAL waktu_karantina DAY) <= "2021-06-26"
+                        ');
+
+                        if(!empty($data)){
+                            $notifikasi_data = $data[0]->nama;
+                            $beep = 'beep';
+                            $show = '';
+                        }
+                        else{
+                            $notifikasi_data = '';
+                            $beep = '';
+                            $show = 'display: none';
+                        }
+                    @endphp
+
+                    <li class="dropdown dropdown-list-toggle {{$beep}}"><a href="#" data-toggle="dropdown"
+                            class=""><i class="fas fa-bell"></i></a>
                         <div class="dropdown-menu dropdown-list dropdown-menu-right">
                             <div class="dropdown-header">Notifications
                                 <div class="float-right">
@@ -151,7 +173,7 @@
                                 </div>
                             </div>
                             <div class="dropdown-list-content dropdown-list-icons">
-                                <a href="#" class="dropdown-item dropdown-item-unread">
+                                {{-- <a href="#" class="dropdown-item dropdown-item-unread">
                                     <div class="dropdown-item-icon bg-primary text-white">
                                         <i class="fas fa-code"></i>
                                     </div>
@@ -159,17 +181,17 @@
                                         Template update is available now!
                                         <div class="time text-primary">2 Min Ago</div>
                                     </div>
-                                </a>
-                                <a href="#" class="dropdown-item">
+                                </a> --}}
+                                <a href="#" class="dropdown-item dropdown-item-unread" style="{{$show}}">
                                     <div class="dropdown-item-icon bg-info text-white">
                                         <i class="far fa-user"></i>
                                     </div>
                                     <div class="dropdown-item-desc">
-                                        <b>You</b> and <b>Dedik Sugiharto</b> are now friends
-                                        <div class="time">10 Hours Ago</div>
+                                        Waktu karantina <b>{{$notifikasi_data}}</b> sudah selesai!
+                                        {{-- <div class="time">10 Hours Ago</div> --}}
                                     </div>
                                 </a>
-                                <a href="#" class="dropdown-item">
+                                {{-- <a href="#" class="dropdown-item">
                                     <div class="dropdown-item-icon bg-success text-white">
                                         <i class="fas fa-check"></i>
                                     </div>
@@ -199,7 +221,7 @@
                             </div>
                             <div class="dropdown-footer text-center">
                                 <a href="#">View All <i class="fas fa-chevron-right"></i></a>
-                            </div>
+                            </div> --}}
                         </div>
                     </li>
                     <li class="dropdown"><a href="#" data-toggle="dropdown"
