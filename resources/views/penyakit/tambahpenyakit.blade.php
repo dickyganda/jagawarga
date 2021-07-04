@@ -21,7 +21,7 @@ Tambah Data Penyakit
 	<form id="tambahpenyakit" method="post">
     {{ csrf_field() }}
     <div class="form-group">
-      <input type="text" name="nama_penyakit" required="required" class="form-control form-control-sm" placeholder="Nama Penyakit">
+      <input type="text" name="nama_penyakit" required="required" class="form-control form-control-sm" pattern="[A-Z0-9.!?\\-]+" title="Please use uppercase. e.g. JHON" placeholder="Nama Penyakit">
     </div>
     
     <div class="form-group">

@@ -21,7 +21,7 @@ Tambah Data Warga
 	<form id="tambahwarga" method="post">
 		{{ csrf_field() }}
 		<div class="form-group">
-      <input type="text" name="nik" required="required" class="form-control form-control-sm" placeholder="NIK">
+      <input type="text" name="nik" required="required" class="form-control form-control-sm" pattern="[0-9]{16}" title="Min. lenght 16" placeholder="NIK">
     </div>
 
     <div class="form-group">
@@ -29,7 +29,7 @@ Tambah Data Warga
     </div>
     
     <div class="form-group">
-      <input type="text" name="nama" required="required" class="form-control form-control-sm" placeholder="Nama">
+      <input type="text" name="nama" required="required" class="form-control form-control-sm" pattern="[A-Z ]+" title="Please use uppercase. e.g. JHON" placeholder="Nama">
     </div>
 
     <div class="form-group">
